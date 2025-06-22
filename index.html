@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محامي.كوم - استشارات قانونية فورية</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tahoma', Arial, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #1a3a8f 0%, #0d6efd 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            margin-left: 10px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 25px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #e9ecef;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #ffc107;
+            color: #212529;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #e0a800;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: #1a3a8f;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e9ecef;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #1a3a8f;
+        }
+        .how-it-works {
+            padding: 80px 0;
+            background-color: #f1f5f9;
+        }
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .step:not(:last-child):after {
+            content: "";
+            position: absolute;
+            top: 25px;
+            right: -20px;
+            width: 40px;
+            height: 3px;
+            background-color: #0d6efd;
+        }
+        .pricing {
+            padding: 80px 0;
+            background-color: white;
+        }
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .pricing-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 350px;
+            transition: all 0.3s;
+            border: 2px solid #e9ecef;
+        }
+        .pricing-card.popular {
+            border-color: #0d6efd;
+            transform: scale(1.05);
+            position: relative;
+        }
+        .pricing-card.popular:before {
+            content: "الأكثر طلباً";
+            position: absolute;
+            top: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            background-color: #0d6efd;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .pricing-card h3 {
+            color: #1a3a8f;
+            margin-bottom: 20px;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+        .price span {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .pricing-card .btn {
+            width: 100%;
+        }
+        .faq {
+            padding: 80px 0;
+            background-color: #f1f5f9;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        .faq-question {
+            padding: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .faq-answer.show {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        footer {
+            background-color: #1a3a8f;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #e9ecef;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background-color: #0d6efd;
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .step:not(:last-child):after {
+                display: none;
+            }
+            .step {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>محامي.كوم</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#how-it-works">كيف يعمل</a></li>
+                    <li><a href="#pricing">الأسعار</a></li>
+                    <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    <li><a href="https://t.me/mohamy_law_bot" class="btn">ابدأ الآن</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>استشارات قانونية فورية من محامين متخصصين</h1>
+            <p>احصل على إجابات دقيقة لأسئلتك القانونية في دقائق معدودة، متاح 24 ساعة طوال أيام الأسبوع</p>
+            <a href="https://t.me/mohamy_law_bot" class="btn">ابدأ الاستشارة الآن</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">مميزات منصتنا</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>سرعة الرد</h3>
+                    <p>احصل على إجابات فورية لاستفساراتك القانونية في دقائق معدودة، متاح على مدار الساعة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>محامين معتمدين</h3>
+                    <p>استشارات قانونية تقدم من قبل محامين متخصصين ومرخصين في جميع المجالات القانونية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>خصوصية تامة</h3>
+                    <p>جميع استشاراتك القانونية تبقى سرية ومحمية، لا نشارك بياناتك مع أي جهة خارجية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>أسعار مناسبة</h3>
+                    <p>استشارات قانونية بأسعار رمزية تناسب الجميع، مع خيارات دفع متعددة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">كيفية استخدام الخدمة</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>انضم إلى البوت</h3>
+                    <p>اضغط على زر "ابدأ الآن" للانضمام إلى بوت محامي.كوم على تيليجرام</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>اختر التصنيف</h3>
+                    <p>اختر التصنيف القانوني المناسب لاستشارتك من القائمة المتاحة</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>اطرح سؤالك</h3>
+                    <p>اكتب سؤالك القانوني بوضوح وسيتم توصيلك بالمحامي المختص</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>احصل على الإجابة</h3>
+                    <p>ستحصل على إجابتك القانونية الدقيقة خلال وقت قصير</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">باقات الاستشارات القانونية</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>سؤال واحد</h3>
+                    <div class="price">5,000 <span>دينار عراقي</span></div>
+                    <ul class="pricing-features">
+                        <li>إجابة قانونية مفصلة على سؤال واحد</li>
+                        <li>رد خلال 24 ساعة</li>
+                        <li>تواصل مع محامٍ متخصص</li>
+                        <li>دعم لمدة يوم واحد بعد الإجابة</li>
+                    </ul>
+                    <a href="https://t.me/mohamy_law_bot" class="btn">اختر هذه الباقة</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>اشتراك شهري</h3>
+                    <div class="price">50,000 <span>دينار عراقي</span></div>
+                    <ul class="pricing-features">
+                        <li>أسئلة غير محدودة لمدة 30 يوم</li>
+                        <li>ردود فورية خلال 60 دقيقة</li>
+                        <li>دعم متواصل طوال فترة الاشتراك</li>
+                        <li>وصول متميز للمحامين المتخصصين</li>
+                        <li>أولوية في الرد على الاستفسارات</li>
+                    </ul>
+                    <a href="https://t.me/mohamy_law_bot" class="btn">اختر هذه الباقة</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">الأسئلة الشائعة</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ما هي مجالات الاستشارات المتاحة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نقدم استشارات في جميع المجالات القانونية بما في ذلك: الأحوال الشخصية (الزواج، الطلاق، الميراث)، العقارات، القانون التجاري، قانون العمل، الجرائم والعقوبات، القضايا الإدارية، وغيرها من التخصصات القانونية.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>كيف يمكنني الدفع للخدمة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نوفر عدة خيارات للدفع تناسب جميع المستخدمين: التحويل البنكي عبر تطبيق كي، الدفع الإلكتروني عبر بطاقات الائتمان، زين كاش، آسيا حوالة، وغيرها من وسائل الدفع المتاحة في العراق. سيتم تفعيل وسائل الدفع الإلكتروني قريباً.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل الاستشارات القانونية سرية؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، جميع استشاراتك القانونية تبقى سرية تماماً. نحن نلتزم بمعايير عالية لحماية الخصوصية ولا نشارك أي معلومات مع أي جهات خارجية. بياناتك محمية بتقنيات تشفير متقدمة.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ما هي مدة الرد على الاستشارات؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>مدة الرد تعتمد على نوع الباقة التي اخترتها:
+                        <br>- لحاملي الاشتراك الشهري: الرد خلال 60 دقيقة
+                        <br>- للاستشارات الفردية: الرد خلال 24 ساعة
+                        <br>في حالات الطوارئ القصوى، يمكنك التواصل مع الدعم الفني لتسريع الرد.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>عن محامي.كوم</h4>
+                    <p>منصة رائدة في تقديم الاستشارات القانونية عبر الإنترنت، تهدف إلى توفير خدمات قانونية متميزة بأسعار مناسبة للجميع في العراق.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">الصفحة الرئيسية</a></li>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#how-it-works">كيف يعمل</a></li>
+                        <li><a href="#pricing">الأسعار</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>مجالات الاستشارات</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">قانون الأسرة</a></li>
+                        <li><a href="#">القانون العقاري</a></li>
+                        <li><a href="#">قانون العمل</a></li>
+                        <li><a href="#">القضايا الجزائية</a></li>
+                        <li><a href="#">القضايا الإدارية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@mohamy.com</li>
+                        <li><i class="fas fa-phone"></i> +964 123 456 789</li>
+                        <li><i class="fab fa-telegram"></i> @mohamy_support</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; محامي.كوم 2023 | تم التطوير بدقة وشفافية</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript للأسئلة الشائعة
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('show');
+                
+                const icon = question.querySelector('i');
+                if (answer.classList.contains('show')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
