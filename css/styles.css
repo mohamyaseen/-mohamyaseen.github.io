@@ -1,0 +1,10 @@
+/* يمكنك إضافة استايلات إضافية هنا إذا لزم الأمر */
+.service-card {
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
