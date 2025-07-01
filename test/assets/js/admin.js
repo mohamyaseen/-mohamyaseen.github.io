@@ -171,87 +171,101 @@ function setupAdminFunctions() {
     // تفعيل أزرار تحرير وحذف المستخدمين
     setupUserActions();
     
-    // تفعيل أزرار الانتقال إلى قسم المستخدمين
-    const usersSectionBtns = document.querySelectorAll('[id^="usersSectionBtn"]');
-    const usersQuickLink = document.getElementById('usersQuickLink');
+    // تفعيل التبديل بين الأقسام
+    const sections = {
+        dashboardLink: 'mainContent',
+        designLink: 'mainContent',
+        pagesLink: 'pagesSection',
+        galleryLink: 'gallerySection',
+        headerLink: 'headerSection',
+        bannerLink: 'bannerSection',
+        footerLink: 'footerSection',
+        settingsLink: 'settingsSection',
+        usersLink: 'usersSection'
+    };
     
-    usersSectionBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('usersSection').style.display = 'block';
-            document.querySelector('.admin-content-container').style.display = 'none';
-        });
-    });
-    
-    if (usersQuickLink) {
-        usersQuickLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('usersSection').style.display = 'block';
-            document.querySelector('.admin-content-container').style.display = 'none';
-        });
+    // إخفاء جميع الأقسام وإظهار القسم الرئيسي
+    function hideAllSections() {
+        document.getElementById('pagesSection').style.display = 'none';
+        document.getElementById('gallerySection').style.display = 'none';
+        document.getElementById('headerSection').style.display = 'none';
+        document.getElementById('bannerSection').style.display = 'none';
+        document.getElementById('footerSection').style.display = 'none';
+        document.getElementById('settingsSection').style.display = 'none';
+        document.getElementById('usersSection').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
     }
     
-    // تفعيل زر العودة للصفحة الرئيسية من قسم المستخدمين
-    const backToDashboard = document.querySelector('[href="dashboard.html"]');
-    if (backToDashboard) {
-        backToDashboard.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('usersSection').style.display = 'none';
-            document.querySelector('.admin-content-container').style.display = 'flex';
-        });
-    }
-    
-    // تفعيل نافذة تعديل المستخدم
-    const editButtons = document.querySelectorAll('.btn-edit-user');
-    const userModal = document.getElementById('userModal');
-    const closeModal = document.querySelector('.close-modal');
-    const cancelEdit = document.getElementById('cancelEdit');
-    
-    editButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const username = this.getAttribute('data-user');
-            document.getElementById('editUsername').value = username;
-            userModal.style.display = 'flex';
-        });
-    });
-    
-    closeModal.addEventListener('click', function() {
-        userModal.style.display = 'none';
-    });
-    
-    cancelEdit.addEventListener('click', function() {
-        userModal.style.display = 'none';
-    });
-    
-    window.addEventListener('click', function(e) {
-        if (e.target === userModal) {
-            userModal.style.display = 'none';
+    // تفعيل الروابط
+    for (const [linkId, sectionId] of Object.entries(sections)) {
+        const link = document.getElementById(linkId);
+        if (link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideAllSections();
+                document.getElementById(sectionId).style.display = 'block';
+                
+                // تحديث القائمة الجانبية
+                document.querySelectorAll('.admin-nav li').forEach(li => {
+                    li.classList.remove('active');
+                });
+                this.parentElement.classList.add('active');
+            });
         }
-    });
+    }
     
-    // تفعيل حفظ تعديل المستخدم
-    const editUserForm = document.getElementById('editUserForm');
-    if (editUserForm) {
-        editUserForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    // تفعيل الروابط السريعة
+    const quickLinks = {
+        galleryQuickLink: 'gallerySection',
+        pagesQuickLink: 'pagesSection',
+        usersQuickLink: 'usersSection',
+        settingsQuickLink: 'settingsSection'
+    };
+    
+    for (const [linkId, sectionId] of Object.entries(quickLinks)) {
+        const link = document.getElementById(linkId);
+        if (link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideAllSections();
+                document.getElementById(sectionId).style.display = 'block';
+                
+                // تحديث القائمة الجانبية
+                document.querySelectorAll('.admin-nav li').forEach(li => {
+                    li.classList.remove('active');
+                });
+                document.getElementById(linkId.replace('QuickLink', 'Link')).parentElement.classList.add('active');
+            });
+        }
+    }
+    
+    // تفعيل إضافة أزرار الهيدر
+    const addHeaderButton = document.getElementById('addHeaderButton');
+    if (addHeaderButton) {
+        addHeaderButton.addEventListener('click', function() {
+            const container = document.getElementById('headerButtonsContainer');
+            const newButton = document.createElement('div');
+            newButton.className = 'button-manager';
+            newButton.innerHTML = `
+                <input type="text" class="form-control" placeholder="اسم الزر">
+                <input type="text" class="form-control" placeholder="الرابط أو القسم">
+                <button class="btn-remove"><i class="fas fa-times"></i></button>
+            `;
+            container.appendChild(newButton);
             
-            const username = document.getElementById('editUsername').value;
-            const password = document.getElementById('editPassword').value;
-            const confirmPassword = document.getElementById('editConfirmPassword').value;
-            const role = document.getElementById('editUserRole').value;
-            const status = document.getElementById('editUserStatus').value;
-            
-            if (password && password !== confirmPassword) {
-                showNotification('كلمة المرور وتأكيدها غير متطابقين', 'error');
-                return;
-            }
-            
-            // هنا سيتم إرسال التعديلات إلى الخادم
-            // في هذا المثال، سنكتفي بعرض إشعار
-            showNotification(`تم تحديث بيانات المستخدم ${username} بنجاح`);
-            userModal.style.display = 'none';
+            // تفعيل زر الحذف
+            newButton.querySelector('.btn-remove').addEventListener('click', function() {
+                newButton.remove();
+            });
         });
     }
+    
+    // تفعيل أزرار حذف الهيدر الموجودة
+    document.querySelectorAll('.btn-remove').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.parentElement.remove();
+        });
+    });
 }
 
 // وظيفة للحصول على اسم الدور
