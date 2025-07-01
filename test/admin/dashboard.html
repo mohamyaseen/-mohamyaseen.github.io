@@ -664,7 +664,7 @@
                     <li class="active">
                         <a href="dashboard.html">
                             <i class="fas fa-tachometer-alt"></i>
-                            <span>لوحة التحكم</span>
+                            <span>الصفحة الرئيسية</span>
                         </a>
                     </li>
                     <li>
@@ -950,34 +950,8 @@
                                             <th>الإجراءات</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>admin</td>
-                                            <td>مدير كامل</td>
-                                            <td><span class="status active">نشط</span></td>
-                                            <td>
-                                                <button class="btn-edit-user" data-user="admin"><i class="fas fa-edit"></i></button>
-                                                <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>editor1</td>
-                                            <td>محرر</td>
-                                            <td><span class="status active">نشط</span></td>
-                                            <td>
-                                                <button class="btn-edit-user" data-user="editor1"><i class="fas fa-edit"></i></button>
-                                                <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>author1</td>
-                                            <td>ناشر</td>
-                                            <td><span class="status inactive">غير نشط</span></td>
-                                            <td>
-                                                <button class="btn-edit-user" data-user="author1"><i class="fas fa-edit"></i></button>
-                                                <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
-                                            </td>
-                                        </tr>
+                                    <tbody id="usersTableBody">
+                                        <!-- سيتم ملؤه بواسطة JavaScript -->
                                     </tbody>
                                 </table>
                             </div>
@@ -1056,9 +1030,50 @@
                 window.location.href = 'login.html';
             }
         }
+        
+        // وظيفة لتحميل بيانات المستخدمين من localStorage
+        function loadUsers() {
+            const usersData = localStorage.getItem('usersData');
+            return usersData ? JSON.parse(usersData) : [
+                { username: 'admin', password: 'admin123', role: 'admin', status: 'active' },
+                { username: 'editor1', password: 'pass123', role: 'editor', status: 'active' },
+                { username: 'author1', password: 'pass123', role: 'author', status: 'inactive' }
+            ];
+        }
+        
+        // وظيفة لحفظ بيانات المستخدمين في localStorage
+        function saveUsers(users) {
+            localStorage.setItem('usersData', JSON.stringify(users));
+        }
+        
+        // وظيفة لتوليد HTML لجدول المستخدمين
+        function renderUsersTable(users) {
+            const tbody = document.getElementById('usersTableBody');
+            tbody.innerHTML = '';
+            
+            users.forEach(user => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${user.username}</td>
+                    <td>${getRoleName(user.role)}</td>
+                    <td><span class="status ${user.status === 'active' ? 'active' : 'inactive'}">${user.status === 'active' ? 'نشط' : 'غير نشط'}</span></td>
+                    <td>
+                        <button class="btn-edit-user" data-user="${user.username}"><i class="fas fa-edit"></i></button>
+                        <button class="btn-delete-user" data-user="${user.username}"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            
+            // إعادة تفعيل الأزرار بعد التصيير
+            setupUserActions();
+        }
 
         // تهيئة وظائف لوحة التحكم
         function setupAdminFunctions() {
+            let users = loadUsers();
+            renderUsersTable(users);
+            
             // تفعيل القائمة الجانبية
             const menuToggle = document.querySelector('.menu-toggle');
             const sidebar = document.querySelector('.sidebar');
@@ -1141,24 +1156,16 @@
                         return;
                     }
                     
-                    // إضافة المستخدم الجديد إلى الجدول
-                    const usersTable = document.querySelector('.users-table tbody');
-                    const newRow = document.createElement('tr');
-                    
-                    newRow.innerHTML = `
-                        <td>${username}</td>
-                        <td>${getRoleName(role)}</td>
-                        <td><span class="status active">نشط</span></td>
-                        <td>
-                            <button class="btn-edit-user" data-user="${username}"><i class="fas fa-edit"></i></button>
-                            <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
-                        </td>
-                    `;
-                    
-                    usersTable.appendChild(newRow);
-                    
-                    // إضافة مستمعات الأحداث للأزرار الجديدة
-                    setupUserActions(newRow);
+                    // إضافة المستخدم الجديد
+                    const newUser = {
+                        username: username,
+                        password: password,
+                        role: role,
+                        status: 'active'
+                    };
+                    users.push(newUser);
+                    saveUsers(users);
+                    renderUsersTable(users);
                     
                     // إظهار الإشعار
                     showNotification(`تم إضافة المستخدم ${username} بنجاح!`);
@@ -1203,18 +1210,20 @@
             }
             
             // تفعيل نافذة تعديل المستخدم
-            const editButtons = document.querySelectorAll('.btn-edit-user');
             const userModal = document.getElementById('userModal');
             const closeModal = document.querySelector('.close-modal');
             const cancelEdit = document.getElementById('cancelEdit');
+            const editUserForm = document.getElementById('editUserForm');
             
-            editButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const username = this.getAttribute('data-user');
-                    document.getElementById('editUsername').value = username;
+            function openEditModal(username) {
+                const user = users.find(u => u.username === username);
+                if (user) {
+                    document.getElementById('editUsername').value = user.username;
+                    document.getElementById('editUserRole').value = user.role;
+                    document.getElementById('editUserStatus').value = user.status;
                     userModal.style.display = 'flex';
-                });
-            });
+                }
+            }
             
             closeModal.addEventListener('click', function() {
                 userModal.style.display = 'none';
@@ -1231,7 +1240,6 @@
             });
             
             // تفعيل حفظ تعديل المستخدم
-            const editUserForm = document.getElementById('editUserForm');
             if (editUserForm) {
                 editUserForm.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -1247,10 +1255,19 @@
                         return;
                     }
                     
-                    // هنا سيتم إرسال التعديلات إلى الخادم
-                    // في هذا المثال، سنكتفي بعرض إشعار
-                    showNotification(`تم تحديث بيانات المستخدم ${username} بنجاح`);
-                    userModal.style.display = 'none';
+                    // تحديث بيانات المستخدم
+                    const userIndex = users.findIndex(u => u.username === username);
+                    if (userIndex !== -1) {
+                        if (password) {
+                            users[userIndex].password = password;
+                        }
+                        users[userIndex].role = role;
+                        users[userIndex].status = status;
+                        saveUsers(users);
+                        renderUsersTable(users);
+                        showNotification(`تم تحديث بيانات المستخدم ${username} بنجاح`);
+                        userModal.style.display = 'none';
+                    }
                 });
             }
         }
@@ -1266,36 +1283,44 @@
         }
         
         // تهيئة وظائف أزرار المستخدمين
-        function setupUserActions(row = null) {
-            const editButtons = row ? 
-                row.querySelectorAll('.btn-edit-user') : 
-                document.querySelectorAll('.btn-edit-user');
-                
-            const deleteButtons = row ? 
-                row.querySelectorAll('.btn-delete-user') : 
-                document.querySelectorAll('.btn-delete-user');
+        function setupUserActions() {
+            const editButtons = document.querySelectorAll('.btn-edit-user');
+            const deleteButtons = document.querySelectorAll('.btn-delete-user');
+            let users = loadUsers();
             
             // تفعيل أزرار التحرير
             editButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    const row = this.closest('tr');
-                    const username = row.cells[0].textContent;
-                    showNotification(`ستتمكن قريباً من تعديل المستخدم: ${username}`);
+                    const username = this.getAttribute('data-user');
+                    openEditModal(username);
                 });
             });
             
             // تفعيل أزرار الحذف
             deleteButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    const row = this.closest('tr');
-                    const username = row.cells[0].textContent;
+                    const username = this.getAttribute('data-user');
                     
                     if (confirm(`هل أنت متأكد من رغبتك في حذف المستخدم ${username}؟`)) {
-                        row.remove();
+                        users = users.filter(u => u.username !== username);
+                        saveUsers(users);
+                        renderUsersTable(users);
                         showNotification(`تم حذف المستخدم ${username} بنجاح`);
                     }
                 });
             });
+        }
+        
+        function openEditModal(username) {
+            const userModal = document.getElementById('userModal');
+            const users = loadUsers();
+            const user = users.find(u => u.username === username);
+            if (user) {
+                document.getElementById('editUsername').value = user.username;
+                document.getElementById('editUserRole').value = user.role;
+                document.getElementById('editUserStatus').value = user.status;
+                userModal.style.display = 'flex';
+            }
         }
 
         // وظيفة لعرض الإشعارات

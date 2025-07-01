@@ -150,7 +150,7 @@ function setupAdminFunctions() {
                 <td><span class="status active">نشط</span></td>
                 <td>
                     <button class="btn-edit-user" data-user="${username}"><i class="fas fa-edit"></i></button>
-                    <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
+                    <button class="btn-delete-user" data-user="${username}"><i class="fas fa-trash"></i></button>
                 </td>
             `;
             
