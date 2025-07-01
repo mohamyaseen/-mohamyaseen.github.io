@@ -119,6 +119,16 @@ function setupAdminFunctions() {
             });
         });
     }
+    
+    // تفعيل زر "اذهب إلى الموقع"
+    const goToSiteLink = document.getElementById('goToSiteLink');
+    if (goToSiteLink) {
+        goToSiteLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const baseUrl = window.location.href.split('/admin/')[0];
+            window.location.href = baseUrl + '/index.html';
+        });
+    }
 }
 
 // تهيئة وظائف تسجيل الدخول
