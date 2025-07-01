@@ -230,149 +230,6 @@
             color: var(--gray);
         }
 
-        .dashboard-sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .section {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .section-header {
-            background: var(--light);
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-header h2 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.3rem;
-            color: var(--dark);
-        }
-
-        .section-body {
-            padding: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .image-upload {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .image-preview {
-            width: 100%;
-            height: 200px;
-            border: 1px dashed var(--border);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .image-preview img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-        }
-
-        .btn-upload {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 0.7rem 1.5rem;
-            background: var(--light);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-upload:hover {
-            background: #e9ecef;
-        }
-
-        .btn-save {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 0.8rem 1.5rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 1rem;
-        }
-
-        .btn-save:hover {
-            background: var(--secondary);
-        }
-
-        .color-picker {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .color-option {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .color-option.active {
-            border-color: var(--dark);
-            transform: scale(1.1);
-        }
-
         .quick-links {
             background: white;
             border-radius: 8px;
@@ -523,6 +380,104 @@
             background: #0d9a6d;
         }
         
+        /* تخصيص التصميم */
+        .section {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            background: var(--light);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            color: var(--dark);
+        }
+
+        .section-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-save {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-save:hover {
+            background: var(--secondary);
+        }
+
+        .color-picker {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .color-option {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .color-option.active {
+            border-color: var(--dark);
+            transform: scale(1.1);
+        }
+        
         /* إدارة الأزرار */
         .button-manager {
             display: grid;
@@ -571,14 +526,6 @@
         }
 
         @media (max-width: 768px) {
-            .dashboard-sections {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-cards {
-                grid-template-columns: 1fr 1fr;
-            }
-
             .admin-content-container {
                 flex-direction: column;
             }
@@ -748,7 +695,7 @@
             </nav>
         </aside>
         
-        <!-- المحتوى الرئيسي للوحة التحكم -->
+        <!-- المحتوى الرئيسي للوحة التحكم (التقارير والروابط فقط) -->
         <main class="admin-main" id="mainContent">
             <div class="admin-container">
                 <div class="dashboard-header">
@@ -798,76 +745,6 @@
                     </div>
                 </div>
                 
-                <div class="dashboard-sections">
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-edit"></i> تعديل محتوى الصفحة الرئيسية</h2>
-                        </div>
-                        <div class="section-body">
-                            <div class="form-group">
-                                <label>عنوان البانر الرئيسي</label>
-                                <input type="text" class="form-control" value="مرحباً بكم في موقعنا الإلكتروني">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>وصف البانر</label>
-                                <textarea class="form-control" rows="3">نقدم لكم أفضل الحلول التقنية والخدمات المتميزة التي تلبي احتياجات عملك وتطوره</textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>صورة الخلفية (رابط URL):</label>
-                                <input type="text" class="form-control" id="bannerImage" placeholder="أدخل رابط الصورة">
-                            </div>
-                            
-                            <button class="btn-save">
-                                <i class="fas fa-save"></i> حفظ التغييرات
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <div class="section-header">
-                            <h2><i class="fas fa-palette"></i> تخصيص التصميم</h2>
-                        </div>
-                        <div class="section-body">
-                            <div class="form-group">
-                                <label>اللون الرئيسي:</label>
-                                <div class="color-picker">
-                                    <div class="color-option active" style="background: #4361ee;" data-color="#4361ee"></div>
-                                    <div class="color-option" style="background: #f72585;" data-color="#f72585"></div>
-                                    <div class="color-option" style="background: #4cc9f0;" data-color="#4cc9f0"></div>
-                                    <div class="color-option" style="background: #7209b7;" data-color="#7209b7"></div>
-                                    <div class="color-option" style="background: #2ec4b6;" data-color="#2ec4b6"></div>
-                                    <div class="color-option" style="background: #ff9f1c;" data-color="#ff9f1c"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>نمط التصميم</label>
-                                <select class="form-control">
-                                    <option>فوتح</option>
-                                    <option>داكن</option>
-                                    <option>مختلط</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>نوع الخط</label>
-                                <select class="form-control">
-                                    <option>Droid Arabic</option>
-                                    <option>Noto Sans Arabic</option>
-                                    <option>El Messiri</option>
-                                    <option>Tajawal</option>
-                                </select>
-                            </div>
-                            
-                            <button class="btn-save">
-                                <i class="fas fa-save"></i> تطبيق التغييرات
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="quick-links">
                     <h2><i class="fas fa-bolt"></i> روابط سريعة</h2>
                     <div class="links-grid">
@@ -891,447 +768,427 @@
                 </div>
             </div>
         </main>
-    </div>
-    
-    <!-- قسم إدارة الصفحات -->
-    <div id="pagesSection" class="admin-main" style="display:none;">
-        <div class="admin-container">
-            <div class="dashboard-header">
-                <h1><i class="fas fa-file-alt"></i> إدارة الصفحات</h1>
-                <p>من هنا يمكنك إضافة وتعديل وحذف صفحات الموقع</p>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-plus-circle"></i> إضافة صفحة جديدة</h2>
+        
+        <!-- قسم تخصيص التصميم (مخفي افتراضيًا) -->
+        <div id="designSection" class="admin-main" style="display:none;">
+            <div class="admin-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-paint-brush"></i> تخصيص التصميم</h1>
+                    <p>من هنا يمكنك تخصيص ألوان وأنماط الموقع</p>
                 </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <label>عنوان الصفحة</label>
-                        <input type="text" class="form-control" id="pageTitle" placeholder="أدخل عنوان الصفحة">
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-palette"></i> تخصيص التصميم</h2>
                     </div>
-                    
-                    <div class="form-group">
-                        <label>محتوى الصفحة</label>
-                        <textarea class="form-control" rows="8" placeholder="أدخل محتوى الصفحة"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>رابط الصفحة</label>
-                        <input type="text" class="form-control" id="pageSlug" placeholder="أدخل رابط الصفحة">
-                    </div>
-                    
-                    <button class="btn-save">
-                        <i class="fas fa-save"></i> حفظ الصفحة
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- قسم معرض الصور -->
-    <div id="gallerySection" class="admin-main" style="display:none;">
-        <div class="admin-container">
-            <div class="dashboard-header">
-                <h1><i class="fas fa-images"></i> معرض الصور</h1>
-                <p>من هنا يمكنك إدارة جميع صور الموقع</p>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-upload"></i> رفع صورة جديدة</h2>
-                </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <label>اختر صورة للرفع</label>
-                        <div class="image-upload">
-                            <div class="image-preview">
-                                <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; color: var(--gray);"></i>
-                                <p>اسحب الصورة هنا أو انقر للاختيار</p>
-                            </div>
-                            <button class="btn-upload">
-                                <i class="fas fa-folder-open"></i> تصفح الصور
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>وصف الصورة (اختياري)</label>
-                        <input type="text" class="form-control" placeholder="أدخل وصف للصورة">
-                    </div>
-                    
-                    <button class="btn-save">
-                        <i class="fas fa-save"></i> حفظ الصورة
-                    </button>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-th"></i> جميع الصور</h2>
-                </div>
-                <div class="section-body">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px;">
-                        <div style="border: 1px solid var(--border); border-radius: 6px; overflow: hidden;">
-                            <img src="https://via.placeholder.com/150" alt="صورة" style="width: 100%; height: 150px; object-fit: cover;">
-                            <div style="padding: 10px;">
-                                <p style="margin-bottom: 5px;">صورة 1</p>
-                                <div style="display: flex; gap: 5px;">
-                                    <button class="btn-edit-user"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
-                                </div>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <label>اللون الرئيسي:</label>
+                            <div class="color-picker">
+                                <div class="color-option active" style="background: #4361ee;" data-color="#4361ee"></div>
+                                <div class="color-option" style="background: #f72585;" data-color="#f72585"></div>
+                                <div class="color-option" style="background: #4cc9f0;" data-color="#4cc9f0"></div>
+                                <div class="color-option" style="background: #7209b7;" data-color="#7209b7"></div>
+                                <div class="color-option" style="background: #2ec4b6;" data-color="#2ec4b6"></div>
+                                <div class="color-option" style="background: #ff9f1c;" data-color="#ff9f1c"></div>
                             </div>
                         </div>
-                        <!-- يمكن إضافة المزيد من الصور هنا -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- قسم إدارة الهيدر -->
-    <div id="headerSection" class="admin-main" style="display:none;">
-        <div class="admin-container">
-            <div class="dashboard-header">
-                <h1><i class="fas fa-header"></i> إدارة الهيدر</h1>
-                <p>من هنا يمكنك تعديل شريط التنقل العلوي</p>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-image"></i> تعديل اللوجو</h2>
-                </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <label>صورة اللوجو</label>
-                        <div class="image-upload">
-                            <div class="image-preview">
-                                <img id="logoPreview" src="https://via.placeholder.com/200x80?text=Logo" alt="لوجو الموقع" style="max-height: 100px;">
-                            </div>
-                            <button class="btn-upload">
-                                <i class="fas fa-upload"></i> اختر صورة جديدة
-                            </button>
-                            <button class="btn-save" style="background: var(--danger); margin-top: 10px;">
-                                <i class="fas fa-trash"></i> حذف اللوجو
-                            </button>
+                        
+                        <div class="form-group">
+                            <label>نمط التصميم</label>
+                            <select class="form-control">
+                                <option>فوتح</option>
+                                <option>داكن</option>
+                                <option>مختلط</option>
+                            </select>
                         </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>اسم الموقع</label>
-                        <input type="text" class="form-control" value="شركتي المتميزة">
-                    </div>
-                    
-                    <button class="btn-save">
-                        <i class="fas fa-save"></i> حفظ التغييرات
-                    </button>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-link"></i> الأزرار الرئيسية</h2>
-                </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <label>إدارة الأزرار</label>
-                        <div id="headerButtonsContainer">
-                            <div class="button-manager">
-                                <input type="text" class="form-control" value="الرئيسية">
-                                <input type="text" class="form-control" value="#">
-                                <button class="btn-remove"><i class="fas fa-times"></i></button>
-                            </div>
-                            <div class="button-manager">
-                                <input type="text" class="form-control" value="من نحن">
-                                <input type="text" class="form-control" value="#">
-                                <button class="btn-remove"><i class="fas fa-times"></i></button>
-                            </div>
-                            <div class="button-manager">
-                                <input type="text" class="form-control" value="الخدمات">
-                                <input type="text" class="form-control" value="#">
-                                <button class="btn-remove"><i class="fas fa-times"></i></button>
-                            </div>
+                        
+                        <div class="form-group">
+                            <label>نوع الخط</label>
+                            <select class="form-control">
+                                <option>Droid Arabic</option>
+                                <option>Noto Sans Arabic</option>
+                                <option>El Messiri</option>
+                                <option>Tajawal</option>
+                            </select>
                         </div>
-                        <button class="btn-add-user" id="addHeaderButton" style="margin-top: 15px;">
-                            <i class="fas fa-plus"></i> إضافة زر جديد
+                        
+                        <button class="btn-save" id="saveDesign">
+                            <i class="fas fa-save"></i> حفظ التغييرات
                         </button>
                     </div>
-                    
-                    <button class="btn-save">
-                        <i class="fas fa-save"></i> حفظ التغييرات
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- قسم إدارة البانر -->
-    <div id="bannerSection" class="admin-main" style="display:none;">
-        <div class="admin-container">
-            <div class="dashboard-header">
-                <h1><i class="fas fa-image"></i> إدارة البانر</h1>
-                <p>من هنا يمكنك تعديل البانر الرئيسي</p>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-sliders-h"></i> تعديل البانر</h2>
+        
+        <!-- قسم إدارة الصفحات -->
+        <div id="pagesSection" class="admin-main" style="display:none;">
+            <div class="admin-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-file-alt"></i> إدارة الصفحات</h1>
+                    <p>من هنا يمكنك إضافة وتعديل وحذف صفحات الموقع</p>
                 </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <label>صورة الخلفية</label>
-                        <div class="image-upload">
-                            <div class="image-preview">
-                                <img src="https://via.placeholder.com/800x400?text=Banner" alt="بانر الموقع" style="max-height: 200px;">
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-plus-circle"></i> إضافة صفحة جديدة</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <label>عنوان الصفحة</label>
+                            <input type="text" class="form-control" id="pageTitle" placeholder="أدخل عنوان الصفحة">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>محتوى الصفحة</label>
+                            <textarea class="form-control" rows="8" placeholder="أدخل محتوى الصفحة"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>رابط الصفحة</label>
+                            <input type="text" class="form-control" id="pageSlug" placeholder="أدخل رابط الصفحة">
+                        </div>
+                        
+                        <button class="btn-save">
+                            <i class="fas fa-save"></i> حفظ الصفحة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- قسم معرض الصور -->
+        <div id="gallerySection" class="admin-main" style="display:none;">
+            <div class="admin-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-images"></i> معرض الصور</h1>
+                    <p>من هنا يمكنك إدارة جميع صور الموقع</p>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-upload"></i> رفع صورة جديدة</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <label>اختر صورة للرفع</label>
+                            <input type="file" class="form-control" id="imageUpload">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>وصف الصورة (اختياري)</label>
+                            <input type="text" class="form-control" placeholder="أدخل وصف للصورة">
+                        </div>
+                        
+                        <button class="btn-save">
+                            <i class="fas fa-save"></i> حفظ الصورة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- قسم إدارة الهيدر -->
+        <div id="headerSection" class="admin-main" style="display:none;">
+            <div class="admin-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-header"></i> إدارة الهيدر</h1>
+                    <p>من هنا يمكنك تعديل شريط التنقل العلوي</p>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-image"></i> تعديل اللوجو</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <label>صورة اللوجو</label>
+                            <input type="file" class="form-control" id="logoUpload">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>اسم الموقع</label>
+                            <input type="text" class="form-control" value="شركتي المتميزة">
+                        </div>
+                        
+                        <button class="btn-save" id="saveLogo">
+                            <i class="fas fa-save"></i> حفظ التغييرات
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-link"></i> الأزرار الرئيسية</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <label>إدارة الأزرار</label>
+                            <div id="headerButtonsContainer">
+                                <div class="button-manager">
+                                    <input type="text" class="form-control" value="الرئيسية">
+                                    <input type="text" class="form-control" value="#">
+                                    <button class="btn-remove"><i class="fas fa-times"></i></button>
+                                </div>
+                                <div class="button-manager">
+                                    <input type="text" class="form-control" value="من نحن">
+                                    <input type="text" class="form-control" value="#">
+                                    <button class="btn-remove"><i class="fas fa-times"></i></button>
+                                </div>
+                                <div class="button-manager">
+                                    <input type="text" class="form-control" value="الخدمات">
+                                    <input type="text" class="form-control" value="#">
+                                    <button class="btn-remove"><i class="fas fa-times"></i></button>
+                                </div>
                             </div>
-                            <button class="btn-upload">
-                                <i class="fas fa-upload"></i> اختر صورة جديدة
+                            <button class="btn-add-user" id="addHeaderButton" style="margin-top: 15px;">
+                                <i class="fas fa-plus"></i> إضافة زر جديد
                             </button>
                         </div>
+                        
+                        <button class="btn-save" id="saveHeaderButtons">
+                            <i class="fas fa-save"></i> حفظ التغييرات
+                        </button>
                     </div>
-                    
-                    <div class="form-group">
-                        <label>العنوان الرئيسي</label>
-                        <input type="text" class="form-control" value="مرحباً بكم في موقعنا الإلكتروني">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>الوصف</label>
-                        <textarea class="form-control" rows="3">نقدم لكم أفضل الحلول التقنية والخدمات المتميزة التي تلبي احتياجات عملك وتطوره</textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>نص زر الدعوة</label>
-                        <input type="text" class="form-control" value="اكتشف خدماتنا">
-                    </div>
-                    
-                    <button class="btn-save">
-                        <i class="fas fa-save"></i> حفظ التغييرات
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- قسم إدارة الفوتر -->
-    <div id="footerSection" class="admin-main" style="display:none;">
-        <div class="admin-container">
-            <div class="dashboard-header">
-                <h1><i class="fas fa-shoe-prints"></i> إدارة الفوتر</h1>
-                <p>من هنا يمكنك تعديل الفوتر (التذييل)</p>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-edit"></i> تعديل محتوى الفوتر</h2>
+        
+        <!-- قسم إدارة البانر -->
+        <div id="bannerSection" class="admin-main" style="display:none;">
+            <div class="admin-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-image"></i> إدارة البانر</h1>
+                    <p>من هنا يمكنك تعديل البانر الرئيسي</p>
                 </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <label>حقوق النشر</label>
-                        <input type="text" class="form-control" value="جميع الحقوق محفوظة &copy; 2023 شركتي المتميزة">
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-sliders-h"></i> تعديل البانر</h2>
                     </div>
-                    
-                    <div class="form-group">
-                        <label>الوصف</label>
-                        <textarea class="form-control" rows="3">نحن شركة رائدة في مجال الحلول التقنية، نسعى لتقديم أفضل الخدمات لعملائنا بجودة عالية وأسعار مناسبة.</textarea>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <label>صورة الخلفية</label>
+                            <input type="file" class="form-control" id="bannerUpload">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>العنوان الرئيسي</label>
+                            <input type="text" class="form-control" value="مرحباً بكم في موقعنا الإلكتروني">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>الوصف</label>
+                            <textarea class="form-control" rows="3">نقدم لكم أفضل الحلول التقنية والخدمات المتميزة التي تلبي احتياجات عملك وتطوره</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>نص زر الدعوة</label>
+                            <input type="text" class="form-control" value="اكتشف خدماتنا">
+                        </div>
+                        
+                        <button class="btn-save" id="saveBanner">
+                            <i class="fas fa-save"></i> حفظ التغييرات
+                        </button>
                     </div>
-                    
-                    <button class="btn-save">
-                        <i class="fas fa-save"></i> حفظ التغييرات
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- قسم الإعدادات -->
-    <div id="settingsSection" class="admin-main" style="display:none;">
-        <div class="admin-container">
-            <div class="dashboard-header">
-                <h1><i class="fas fa-cog"></i> الإعدادات</h1>
-                <p>من هنا يمكنك تعديل إعدادات الموقع العامة</p>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-home"></i> الصفحة الرئيسية</h2>
-                </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <label>عنوان البانر الرئيسي</label>
-                        <input type="text" class="form-control" value="مرحباً بكم في موقعنا الإلكتروني">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>وصف البانر</label>
-                        <textarea class="form-control" rows="3">نقدم لكم أفضل الحلول التقنية والخدمات المتميزة التي تلبي احتياجات عملك وتطوره</textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>صورة الخلفية (رابط URL):</label>
-                        <input type="text" class="form-control" id="bannerImage" placeholder="أدخل رابط الصورة">
-                    </div>
-                    
-                    <button class="btn-save">
-                        <i class="fas fa-save"></i> حفظ التغييرات
-                    </button>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-info-circle"></i> معلومات الموقع</h2>
-                </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <label>اسم الموقع</label>
-                        <input type="text" class="form-control" value="شركتي المتميزة">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>وصف الموقع</label>
-                        <textarea class="form-control" rows="3">الوصف المختصر للموقع يظهر في محركات البحث</textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>الكلمات المفتاحية</label>
-                        <input type="text" class="form-control" placeholder="أدخل الكلمات المفتاحية مفصولة بفواصل">
-                    </div>
-                    
-                    <button class="btn-save">
-                        <i class="fas fa-save"></i> حفظ التغييرات
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- قسم إدارة المستخدمين -->
-    <div id="usersSection" class="admin-main" style="display:none;">
-        <div class="admin-container">
-            <div class="dashboard-header">
-                <h1><i class="fas fa-users"></i> إدارة المستخدمين</h1>
-                <p>من هنا يمكنك إضافة وتعديل وحذف حسابات المستخدمين</p>
-            </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-user-plus"></i> إضافة مستخدم جديد</h2>
+        
+        <!-- قسم إدارة الفوتر -->
+        <div id="footerSection" class="admin-main" style="display:none;">
+            <div class="admin-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-shoe-prints"></i> إدارة الفوتر</h1>
+                    <p>من هنا يمكنك تعديل الفوتر (التذييل)</p>
                 </div>
-                <div class="section-body">
-                    <div class="form-group">
-                        <div class="add-user-form">
-                            <input type="text" class="form-control" id="newUsername" placeholder="اسم المستخدم">
-                            <input type="password" class="form-control" id="newPassword" placeholder="كلمة المرور">
-                            <select class="form-control" id="newUserRole">
-                                <option value="admin">مدير كامل</option>
-                                <option value="editor">محرر</option>
-                                <option value="author">ناشر</option>
-                            </select>
-                            <button class="btn-add-user">
-                                <i class="fas fa-plus"></i> إضافة
-                            </button>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-edit"></i> تعديل محتوى الفوتر</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <label>حقوق النشر</label>
+                            <input type="text" class="form-control" value="جميع الحقوق محفوظة &copy; 2023 شركتي المتميزة">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>الوصف</label>
+                            <textarea class="form-control" rows="3">نحن شركة رائدة في مجال الحلول التقنية، نسعى لتقديم أفضل الخدمات لعملائنا بجودة عالية وأسعار مناسبة.</textarea>
+                        </div>
+                        
+                        <button class="btn-save" id="saveFooter">
+                            <i class="fas fa-save"></i> حفظ التغييرات
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- قسم الإعدادات -->
+        <div id="settingsSection" class="admin-main" style="display:none;">
+            <div class="admin-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-cog"></i> الإعدادات</h1>
+                    <p>من هنا يمكنك تعديل إعدادات الموقع العامة</p>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-home"></i> الصفحة الرئيسية</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <label>عنوان البانر الرئيسي</label>
+                            <input type="text" class="form-control" value="مرحباً بكم في موقعنا الإلكتروني">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>وصف البانر</label>
+                            <textarea class="form-control" rows="3">نقدم لكم أفضل الحلول التقنية والخدمات المتميزة التي تلبي احتياجات عملك وتطوره</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>صورة الخلفية</label>
+                            <input type="file" class="form-control" id="homeBannerUpload">
+                        </div>
+                        
+                        <button class="btn-save" id="saveHomeSettings">
+                            <i class="fas fa-save"></i> حفظ التغييرات
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- قسم إدارة المستخدمين -->
+        <div id="usersSection" class="admin-main" style="display:none;">
+            <div class="admin-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-users"></i> إدارة المستخدمين</h1>
+                    <p>من هنا يمكنك إضافة وتعديل وحذف حسابات المستخدمين</p>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-user-plus"></i> إضافة مستخدم جديد</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-group">
+                            <div class="add-user-form">
+                                <input type="text" class="form-control" id="newUsername" placeholder="اسم المستخدم">
+                                <input type="password" class="form-control" id="newPassword" placeholder="كلمة المرور">
+                                <select class="form-control" id="newUserRole">
+                                    <option value="admin">مدير كامل</option>
+                                    <option value="editor">محرر</option>
+                                    <option value="author">ناشر</option>
+                                </select>
+                                <button class="btn-add-user">
+                                    <i class="fas fa-plus"></i> إضافة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-users"></i> قائمة المستخدمين</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="users-list">
+                            <table class="users-table">
+                                <thead>
+                                    <tr>
+                                        <th>اسم المستخدم</th>
+                                        <th>الدور</th>
+                                        <th>الحالة</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>admin</td>
+                                        <td>مدير كامل</td>
+                                        <td><span class="status active">نشط</span></td>
+                                        <td>
+                                            <button class="btn-edit-user"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>editor1</td>
+                                        <td>محرر</td>
+                                        <td><span class="status active">نشط</span></td>
+                                        <td>
+                                            <button class="btn-edit-user"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>author1</td>
+                                        <td>ناشر</td>
+                                        <td><span class="status inactive">غير نشط</span></td>
+                                        <td>
+                                            <button class="btn-edit-user"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="section">
-                <div class="section-header">
-                    <h2><i class="fas fa-users"></i> قائمة المستخدمين</h2>
-                </div>
-                <div class="section-body">
-                    <div class="users-list">
-                        <table class="users-table">
-                            <thead>
-                                <tr>
-                                    <th>اسم المستخدم</th>
-                                    <th>الدور</th>
-                                    <th>الحالة</th>
-                                    <th>الإجراءات</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>admin</td>
-                                    <td>مدير كامل</td>
-                                    <td><span class="status active">نشط</span></td>
-                                    <td>
-                                        <button class="btn-edit-user"><i class="fas fa-edit"></i></button>
-                                        <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>editor1</td>
-                                    <td>محرر</td>
-                                    <td><span class="status active">نشط</span></td>
-                                    <td>
-                                        <button class="btn-edit-user"><i class="fas fa-edit"></i></button>
-                                        <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>author1</td>
-                                    <td>ناشر</td>
-                                    <td><span class="status inactive">غير نشط</span></td>
-                                    <td>
-                                        <button class="btn-edit-user"><i class="fas fa-edit"></i></button>
-                                        <button class="btn-delete-user"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-    
-    <!-- نافذة تعديل المستخدم -->
-    <div class="user-modal" id="userModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-user-edit"></i> تعديل المستخدم</h2>
-                <button class="close-modal">&times;</button>
+        
+        <!-- نافذة تعديل المستخدم -->
+        <div class="user-modal" id="userModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-user-edit"></i> تعديل المستخدم</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <form id="editUserForm">
+                    <div class="form-group">
+                        <label>اسم المستخدم</label>
+                        <input type="text" class="form-control" id="editUsername" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>كلمة المرور الجديدة</label>
+                        <input type="password" class="form-control" id="editPassword" placeholder="اتركه فارغًا للحفاظ على كلمة المرور الحالية">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>تأكيد كلمة المرور</label>
+                        <input type="password" class="form-control" id="editConfirmPassword" placeholder="تأكيد كلمة المرور الجديدة">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>الدور</label>
+                        <select class="form-control" id="editUserRole">
+                            <option value="admin">مدير كامل</option>
+                            <option value="editor">محرر</option>
+                            <option value="author">ناشر</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>الحالة</label>
+                        <select class="form-control" id="editUserStatus">
+                            <option value="active">نشط</option>
+                            <option value="inactive">غير نشط</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="display: flex; justify-content: flex-end; gap: 10px;">
+                        <button type="button" class="btn-save" style="background: var(--gray);" id="cancelEdit">إلغاء</button>
+                        <button type="submit" class="btn-save">حفظ التغييرات</button>
+                    </div>
+                </form>
             </div>
-            <form id="editUserForm">
-                <div class="form-group">
-                    <label>اسم المستخدم</label>
-                    <input type="text" class="form-control" id="editUsername" readonly>
-                </div>
-                
-                <div class="form-group">
-                    <label>كلمة المرور الجديدة</label>
-                    <input type="password" class="form-control" id="editPassword" placeholder="اتركه فارغًا للحفاظ على كلمة المرور الحالية">
-                </div>
-                
-                <div class="form-group">
-                    <label>تأكيد كلمة المرور</label>
-                    <input type="password" class="form-control" id="editConfirmPassword" placeholder="تأكيد كلمة المرور الجديدة">
-                </div>
-                
-                <div class="form-group">
-                    <label>الدور</label>
-                    <select class="form-control" id="editUserRole">
-                        <option value="admin">مدير كامل</option>
-                        <option value="editor">محرر</option>
-                        <option value="author">ناشر</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>الحالة</label>
-                    <select class="form-control" id="editUserStatus">
-                        <option value="active">نشط</option>
-                        <option value="inactive">غير نشط</option>
-                    </select>
-                </div>
-                
-                <div class="form-group" style="display: flex; justify-content: flex-end; gap: 10px;">
-                    <button type="button" class="btn-save" style="background: var(--gray);" id="cancelEdit">إلغاء</button>
-                    <button type="submit" class="btn-save">حفظ التغييرات</button>
-                </div>
-            </form>
         </div>
     </div>
     
@@ -1401,22 +1258,6 @@
                 });
             }
             
-            // تفعيل أزرار الحفظ
-            const saveButtons = document.querySelectorAll('.btn-save');
-            
-            if (saveButtons.length > 0) {
-                saveButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const section = this.closest('.section');
-                        const sectionTitle = section.querySelector('.section-header h2').textContent;
-                        
-                        // في الواقع، هنا سيتم إرسال البيانات إلى الخادم
-                        // لكن في هذا المثال سنكتفي بعرض إشعار
-                        showNotification(`تم حفظ تغييرات قسم "${sectionTitle}" بنجاح!`);
-                    });
-                });
-            }
-            
             // تفعيل زر "اذهب إلى الموقع"
             const goToSiteLinks = document.querySelectorAll('[id^="goToSiteLink"]');
             goToSiteLinks.forEach(link => {
@@ -1474,7 +1315,7 @@
             // تفعيل التبديل بين الأقسام
             const sections = {
                 dashboardLink: 'mainContent',
-                designLink: 'mainContent',
+                designLink: 'designSection',
                 pagesLink: 'pagesSection',
                 galleryLink: 'gallerySection',
                 headerLink: 'headerSection',
@@ -1486,6 +1327,7 @@
             
             // إخفاء جميع الأقسام وإظهار القسم الرئيسي
             function hideAllSections() {
+                document.getElementById('designSection').style.display = 'none';
                 document.getElementById('pagesSection').style.display = 'none';
                 document.getElementById('gallerySection').style.display = 'none';
                 document.getElementById('headerSection').style.display = 'none';
@@ -1564,6 +1406,41 @@
             document.querySelectorAll('.btn-remove').forEach(btn => {
                 btn.addEventListener('click', function() {
                     this.parentElement.remove();
+                });
+            });
+            
+            // تفعيل حفظ أزرار الهيدر
+            const saveHeaderButtons = document.getElementById('saveHeaderButtons');
+            if (saveHeaderButtons) {
+                saveHeaderButtons.addEventListener('click', function() {
+                    const buttonsContainer = document.getElementById('headerButtonsContainer');
+                    const buttonManagers = buttonsContainer.querySelectorAll('.button-manager');
+                    const buttonsData = [];
+                    
+                    buttonManagers.forEach(manager => {
+                        const inputs = manager.querySelectorAll('input');
+                        if (inputs.length >= 2) {
+                            buttonsData.push({
+                                text: inputs[0].value,
+                                url: inputs[1].value
+                            });
+                        }
+                    });
+                    
+                    // حفظ البيانات في localStorage (أو إرسالها إلى الخادم)
+                    localStorage.setItem('headerButtons', JSON.stringify(buttonsData));
+                    
+                    showNotification('تم حفظ أزرار الهيدر بنجاح!');
+                });
+            }
+            
+            // تفعيل حفظ التخصيصات
+            const saveButtons = document.querySelectorAll('.btn-save');
+            saveButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.closest('.section');
+                    const sectionTitle = section.querySelector('.section-header h2').textContent;
+                    showNotification(`تم حفظ تغييرات قسم "${sectionTitle}" بنجاح!`);
                 });
             });
         }

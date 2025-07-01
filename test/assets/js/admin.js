@@ -74,49 +74,6 @@ function setupAdminFunctions() {
         });
     }
     
-    // تفعيل رفع الصور
-    const uploadButtons = document.querySelectorAll('.btn-upload');
-    
-    if (uploadButtons.length > 0) {
-        uploadButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const input = document.createElement('input');
-                input.type = 'file';
-                input.accept = 'image/*';
-                
-                input.onchange = function(e) {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function(event) {
-                            const preview = button.closest('.image-upload').querySelector('.image-preview');
-                            preview.innerHTML = `<img src="${event.target.result}" alt="الصورة المرفوعة">`;
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                };
-                
-                input.click();
-            });
-        });
-    }
-    
-    // تفعيل أزرار الحفظ
-    const saveButtons = document.querySelectorAll('.btn-save');
-    
-    if (saveButtons.length > 0) {
-        saveButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const section = this.closest('.section');
-                const sectionTitle = section.querySelector('.section-header h2').textContent;
-                
-                // في الواقع، هنا سيتم إرسال البيانات إلى الخادم
-                // لكن في هذا المثال سنكتفي بعرض إشعار
-                showNotification(`تم حفظ تغييرات قسم "${sectionTitle}" بنجاح!`);
-            });
-        });
-    }
-    
     // تفعيل زر "اذهب إلى الموقع"
     const goToSiteLinks = document.querySelectorAll('[id^="goToSiteLink"]');
     goToSiteLinks.forEach(link => {
@@ -174,7 +131,7 @@ function setupAdminFunctions() {
     // تفعيل التبديل بين الأقسام
     const sections = {
         dashboardLink: 'mainContent',
-        designLink: 'mainContent',
+        designLink: 'designSection',
         pagesLink: 'pagesSection',
         galleryLink: 'gallerySection',
         headerLink: 'headerSection',
@@ -186,6 +143,7 @@ function setupAdminFunctions() {
     
     // إخفاء جميع الأقسام وإظهار القسم الرئيسي
     function hideAllSections() {
+        document.getElementById('designSection').style.display = 'none';
         document.getElementById('pagesSection').style.display = 'none';
         document.getElementById('gallerySection').style.display = 'none';
         document.getElementById('headerSection').style.display = 'none';
@@ -264,6 +222,41 @@ function setupAdminFunctions() {
     document.querySelectorAll('.btn-remove').forEach(btn => {
         btn.addEventListener('click', function() {
             this.parentElement.remove();
+        });
+    });
+    
+    // تفعيل حفظ أزرار الهيدر
+    const saveHeaderButtons = document.getElementById('saveHeaderButtons');
+    if (saveHeaderButtons) {
+        saveHeaderButtons.addEventListener('click', function() {
+            const buttonsContainer = document.getElementById('headerButtonsContainer');
+            const buttonManagers = buttonsContainer.querySelectorAll('.button-manager');
+            const buttonsData = [];
+            
+            buttonManagers.forEach(manager => {
+                const inputs = manager.querySelectorAll('input');
+                if (inputs.length >= 2) {
+                    buttonsData.push({
+                        text: inputs[0].value,
+                        url: inputs[1].value
+                    });
+                }
+            });
+            
+            // حفظ البيانات في localStorage (أو إرسالها إلى الخادم)
+            localStorage.setItem('headerButtons', JSON.stringify(buttonsData));
+            
+            showNotification('تم حفظ أزرار الهيدر بنجاح!');
+        });
+    }
+    
+    // تفعيل حفظ التخصيصات
+    const saveButtons = document.querySelectorAll('.btn-save');
+    saveButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const section = this.closest('.section');
+            const sectionTitle = section.querySelector('.section-header h2').textContent;
+            showNotification(`تم حفظ تغييرات قسم "${sectionTitle}" بنجاح!`);
         });
     });
 }
