@@ -598,7 +598,7 @@
         }
     </style>
 </head>
-<body class="admin-dashboard">
+<body class="admin-dashboard" onload="initAdminDashboard()">
     <!-- شريط التنقل العلوي -->
     <header class="admin-header">
         <div class="header-left">
@@ -1194,7 +1194,7 @@
     
     <script>
         // تهيئة لوحة التحكم عند التحميل
-        document.addEventListener('DOMContentLoaded', function() {
+        function initAdminDashboard() {
             console.log('تم تحميل لوحة التحكم بنجاح');
             
             // التحقق من تسجيل الدخول
@@ -1202,7 +1202,21 @@
             
             // تفعيل وظائف لوحة التحكم
             setupAdminFunctions();
-        });
+            
+            // تفعيل أزرار الحفظ
+            setupSaveButtons();
+        }
+        
+        // تفعيل أزرار الحفظ
+        function setupSaveButtons() {
+            document.querySelectorAll('.btn-save').forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.closest('.section');
+                    const sectionTitle = section.querySelector('.section-header h2').textContent;
+                    showNotification(`تم حفظ تغييرات قسم "${sectionTitle}" بنجاح!`);
+                });
+            });
+        }
 
         // التحقق من حالة تسجيل الدخول
         function checkLoginStatus() {
@@ -1433,16 +1447,6 @@
                     showNotification('تم حفظ أزرار الهيدر بنجاح!');
                 });
             }
-            
-            // تفعيل حفظ التخصيصات
-            const saveButtons = document.querySelectorAll('.btn-save');
-            saveButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const section = this.closest('.section');
-                    const sectionTitle = section.querySelector('.section-header h2').textContent;
-                    showNotification(`تم حفظ تغييرات قسم "${sectionTitle}" بنجاح!`);
-                });
-            });
         }
         
         // وظيفة للحصول على اسم الدور
