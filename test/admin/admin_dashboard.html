@@ -1573,5 +1573,119 @@
             }, 3000);
         }
     </script>
+<script>
+// دالة لحفظ البيانات
+function saveSectionData(section, data) {
+    fetch('admin_save.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            action: 'save',
+            section: section,
+            data: data
+        })
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.status === 'success') {
+            showNotification(`تم حفظ ${section} بنجاح!`);
+        } else {
+            showNotification('حدث خطأ أثناء الحفظ!', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('حدث خطأ أثناء الحفظ:', error);
+        showNotification('حدث خطأ في الاتصال بالخادم', 'error');
+    });
+}
+
+// تفعيل أزرار الحفظ
+function setupSaveButtons() {
+    // زر حفظ التصميم
+    const saveDesignBtn = document.getElementById('saveDesign');
+    if (saveDesignBtn) {
+        saveDesignBtn.addEventListener('click', function() {
+            const selectedColor = document.querySelector('.color-option.active').dataset.color;
+            const theme = document.getElementById('designTheme').value;
+            const font = document.getElementById('designFont').value;
+            
+            saveSectionData('design', {
+                primaryColor: selectedColor,
+                theme: theme,
+                fontFamily: font
+            });
+        });
+    }
+    
+    // زر حفظ أزرار الهيدر
+    const saveHeaderButtons = document.getElementById('saveHeaderButtons');
+    if (saveHeaderButtons) {
+        saveHeaderButtons.addEventListener('click', function() {
+            const buttonsContainer = document.getElementById('headerButtonsContainer');
+            const buttonManagers = buttonsContainer.querySelectorAll('.button-manager');
+            const buttonsData = [];
+            
+            buttonManagers.forEach(manager => {
+                const inputs = manager.querySelectorAll('input');
+                if (inputs.length >= 2) {
+                    buttonsData.push({
+                        text: inputs[0].value,
+                        url: inputs[1].value
+                    });
+                }
+            });
+            
+            saveSectionData('header', {buttons: buttonsData});
+        });
+    }
+    
+    // زر حفظ البانر
+    const saveBannerBtn = document.getElementById('saveBanner');
+    if (saveBannerBtn) {
+        saveBannerBtn.addEventListener('click', function() {
+            const title = document.querySelector('#bannerSection input[type="text"]').value;
+            const description = document.querySelector('#bannerSection textarea').value;
+            const buttonText = document.querySelector('#bannerSection input[type="text"]:nth-child(4)').value;
+            
+            saveSectionData('banner', {
+                title: title,
+                description: description,
+                buttonText: buttonText
+            });
+        });
+    }
+    
+    // زر حفظ الفوتر
+    const saveFooterBtn = document.getElementById('saveFooter');
+    if (saveFooterBtn) {
+        saveFooterBtn.addEventListener('click', function() {
+            const copyright = document.querySelector('#footerSection input[type="text"]').value;
+            const description = document.querySelector('#footerSection textarea').value;
+            
+            saveSectionData('footer', {
+                copyright: copyright,
+                description: description
+            });
+        });
+    }
+}
+
+// تفعيل وظائف لوحة التحكم عند التحميل
+function initAdminDashboard() {
+    console.log('تم تحميل لوحة التحكم بنجاح');
+    
+    // التحقق من تسجيل الدخول
+    checkLoginStatus();
+    
+    // تفعيل وظائف لوحة التحكم
+    setupAdminFunctions();
+    
+    // تفعيل أزرار الحفظ
+    setupSaveButtons();
+}
+
+// استدعاء تهيئة لوحة التحكم
+initAdminDashboard();
+</script>
 </body>
 </html>
