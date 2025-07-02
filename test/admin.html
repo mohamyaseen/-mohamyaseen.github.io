@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة تحكم الأدمن</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>لوحة تحكم الأدمن</h1>
+        <nav class="admin-tabs">
+            <button data-tab="logo">الشعار</button>
+            <button data-tab="banner">البانر</button>
+            <button data-tab="header">الهيدر</button>
+            <button data-tab="main">القسم الرئيسي</button>
+            <button data-tab="footer">الفوتر</button>
+        </nav>
+        <form id="admin-form">
+            <div class="tab-content" id="tab-logo">
+                <h2>تغيير الشعار</h2>
+                <input type="text" id="admin-logo-url" placeholder="رابط صورة الشعار الجديد">
+                <button type="button" onclick="saveLogo()">حفظ</button>
+            </div>
+            <div class="tab-content" id="tab-banner">
+                <h2>تغيير البانر</h2>
+                <input type="text" id="admin-banner-url" placeholder="رابط صورة البانر الجديد">
+                <button type="button" onclick="saveBanner()">حفظ</button>
+            </div>
+            <div class="tab-content" id="tab-header">
+                <h2>تغيير عنوان الهيدر</h2>
+                <input type="text" id="admin-header-title" placeholder="العنوان الجديد للهيدر">
+                <button type="button" onclick="saveHeader()">حفظ</button>
+            </div>
+            <div class="tab-content" id="tab-main">
+                <h2>القسم الرئيسي</h2>
+                <input type="text" id="admin-main-title" placeholder="عنوان القسم الرئيسي">
+                <textarea id="admin-main-text" placeholder="نص القسم الرئيسي"></textarea>
+                <button type="button" onclick="saveMain()">حفظ</button>
+            </div>
+            <div class="tab-content" id="tab-footer">
+                <h2>تغيير الفوتر</h2>
+                <input type="text" id="admin-footer-text" placeholder="نص الفوتر">
+                <button type="button" onclick="saveFooter()">حفظ</button>
+            </div>
+        </form>
+        <a href="index.html" class="admin-link">العودة للموقع</a>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>
