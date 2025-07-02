@@ -38,18 +38,21 @@
     </div>
     <div class="notification" id="notification"></div>
     <script>
-    // تنبيه للتأكد أن السكريبت يعمل
     alert("سكربت الأدمن يعمل!");
 
     document.getElementById('loginForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert("تم الضغط على زر دخول"); // للتأكد من تفاعل الزر
+        alert("تم الضغط على زر دخول");
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
+
+        // استخدم FormData بدلاً من JSON
+        const formData = new FormData();
+        formData.append('action', 'load');
+
         fetch('../save.php', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({action:'load'})
+            body: formData
         })
         .then(res=>res.json())
         .then(users=>{
@@ -67,6 +70,7 @@
             showNotification('حدث خطأ في الاتصال بالسيرفر','error');
         });
     });
+
     function showNotification(msg,type='success'){
         const n = document.getElementById('notification');
         n.textContent = msg;
