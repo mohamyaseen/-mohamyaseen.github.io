@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دخول الأدمن</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fas fa-lock"></i>
+                <h1>تسجيل الدخول إلى لوحة التحكم</h1>
+                <p>أدخل بيانات الاعتماد للوصول إلى لوحة الإدارة</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">اسم المستخدم</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> دخول
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="notification" id="notification"></div>
+    <script>
+    // تنبيه للتأكد أن السكريبت يعمل
+    alert("سكربت الأدمن يعمل!");
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert("تم الضغط على زر دخول"); // للتأكد من تفاعل الزر
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        fetch('../save.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({action:'load'})
+        })
+        .then(res=>res.json())
+        .then(users=>{
+            const found = users.find(u=>u.username===username && u.password===password && u.status==="active");
+            if(found){
+                localStorage.setItem('adminLoggedIn','true');
+                window.location.href = 'dashboard.html';
+            }else{
+                alert("بيانات الدخول غير صحيحة");
+                showNotification('بيانات الدخول غير صحيحة','error');
+            }
+        })
+        .catch(err => {
+            alert("حدث خطأ في الاتصال بالسيرفر");
+            showNotification('حدث خطأ في الاتصال بالسيرفر','error');
+        });
+    });
+    function showNotification(msg,type='success'){
+        const n = document.getElementById('notification');
+        n.textContent = msg;
+        n.className = 'notification '+type;
+        n.style.display = 'block';
+        setTimeout(()=>n.style.display='none',2000);
+    }
+    </script>
+</body>
+</html>
