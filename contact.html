@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>اتصل بنا | منصة محاميكم</title>
-    <!-- Google Fonts + Cairo -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (مجاني للاستخدام) لأيقونات كبيرة واحترافية -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== التصميم الأصلي بالكامل – لم يتم تغيير أي خاصية بصرية رئيسية ===== */
+        /* ===== التصميم الأصلي بالكامل ===== */
         :root { 
             --bg-dark: #0a0f2b; 
             --gold-main: #f9d77a; 
@@ -76,16 +74,25 @@
             font-size: 3.2rem;
             transition: transform 0.2s;
         }
-        /* اختياري: إضافة لمسة ذهبية عند المرور */
+        /* تنسيق النص أسفل الأيقونة */
+        .method span {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            transition: 0.3s ease;
+            font-weight: 600;
+        }
+        /* لمسة ذهبية للأيقونة والنص عند المرور */
         .method:hover i {
             transform: scale(1.05);
+        }
+        .method:hover span {
+            color: var(--gold-main);
         }
         .method:hover { 
             border-color: var(--gold-main); 
             background: rgba(249, 215, 122, 0.1); 
             transform: translateY(-3px);
         }
-        /* لا يوجد نصوص تطبيقات – فقط أيقونات */
         .btn-back { 
             display: inline-block; 
             margin-top: 45px; 
@@ -103,13 +110,10 @@
             .contact-methods { grid-template-columns: repeat(2, 1fr); gap: 15px; }
             .method { padding: 20px 8px; }
             .method i { font-size: 2.5rem; }
+            .method span { font-size: 0.85rem; }
         }
         @media (max-width: 400px) {
             .contact-methods { grid-template-columns: 1fr; }
-        }
-        /* إبقاء جميع العناصر بدون نصوص إضافية (باستثناء الأيقونات) */
-        .method span {
-            display: none;  /* إخفاء أي نصوص احتياطية إن وجدت */
         }
     </style>
 </head>
@@ -118,30 +122,39 @@
         <h1>اتصل بنا</h1>
         <p>يسعدنا استقبال استفساراتكم وملاحظاتكم عبر القنوات التالية:</p>
         <div class="contact-methods">
-            <!-- 1. واتساب - أيقونة كبيرة، الرقم المطلوب 9647775535047 -->
-            <a href="https://wa.me/9647775535047" class="method" target="_blank" rel="noopener noreferrer" title="واتساب - تواصل مباشر">
-                <i class="fab fa-whatsapp"></i>
-                <!-- لا نصوص مرئية، فقط أيقونة كبيرة -->
+            <a href="https://app.mohamyiq.com/" class="method" target="_blank" rel="noopener noreferrer" title="المنصة الآمنة المشفرة">
+                <i class="fas fa-user-shield"></i>
+                <span>المنصة الآمنة</span>
             </a>
-            <!-- 2. تليجرام (القناة) https://t.me/mohamyiq -->
             <a href="https://t.me/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="تليجرام - قناة منصة محاميكم">
                 <i class="fab fa-telegram"></i>
+                <span>قناة تليجرام</span>
             </a>
-            <!-- 3. فيسبوك -> facebook.com/mohamyiq -->
-            <a href="https://facebook.com/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="فيسبوك - صفحتنا الرسمية">
-                <i class="fab fa-facebook-f"></i>
+            <a href="https://discordapp.com/oauth2/authorize?client_id=1490801686485274834" class="method" target="_blank" rel="noopener noreferrer" title="ديسكورد">
+                <i class="fab fa-discord"></i>
+                <span>ديسكورد</span>
             </a>
-            <!-- 4. إنستغرام -> instagram.com/mohamyiq -->
-            <a href="https://instagram.com/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="إنستغرام - محتوى قانوني">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <!-- 5. الاستشارات الفورية (بوت تليجرام) -> t.me/mohamyiq_bot -->
-            <a href="https://t.me/mohamyiq_bot" class="method" target="_blank" rel="noopener noreferrer" title="استشارات فورية - بوت تليجرام">
-                <i class="fas fa-robot"></i>
-            </a>
-            <!-- 6. البريد الإلكتروني -> mohamycom@proton.me -->
+
             <a href="mailto:mohamycom@proton.me" class="method" title="البريد الإلكتروني">
                 <i class="fas fa-envelope"></i>
+                <span>البريد الإلكتروني</span>
+            </a>
+            <a href="https://t.me/mohamyiq_bot" class="method" target="_blank" rel="noopener noreferrer" title="استشارات فورية - بوت تليجرام">
+                <i class="fas fa-robot"></i>
+                <span>المساعد الذكي</span>
+            </a>
+            <a href="https://wa.me/9647775535047" class="method" target="_blank" rel="noopener noreferrer" title="واتساب - تواصل مباشر">
+                <i class="fab fa-whatsapp"></i>
+                <span>واتساب</span>
+            </a>
+
+            <a href="https://facebook.com/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="فيسبوك - صفحتنا الرسمية">
+                <i class="fab fa-facebook-f"></i>
+                <span>فيسبوك</span>
+            </a>
+            <a href="https://instagram.com/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="إنستغرام - محتوى قانوني">
+                <i class="fab fa-instagram"></i>
+                <span>إنستغرام</span>
             </a>
         </div>
         <a href="index.html" class="btn-back">العودة للصفحة الرئيسية</a>
