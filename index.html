@@ -7,142 +7,304 @@
     <title>منصة محاميكم | استشارات قانونية عراقية أونلاين</title>
     <meta name="description" content="منصة محاميكم هي بوابتك الرقمية للحصول على استشارات قانونية دقيقة في العراق. متخصصون في قضايا الأسرة، العمل، الوظيفة، وصياغة العقود باحترافية عاليّة.">
     <meta name="keywords" content="محامي عراقي، استشارات قانونية، منصة محاميكم، صياغة عقود، قانون العمل العراقي، قضايا الموظفين، محاماة أونلاين">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mohamyiq.com/">
     
     <meta property="og:title" content="منصة محاميكم | للاستشارات القانونية">
     <meta property="og:description" content="استشارات قانونية دقيقة وإجابات متكاملة بين يديك بضغطة زر.">
     <meta property="og:image" content="https://mohamyiq.com/logo.png">
     <meta property="og:url" content="https://mohamyiq.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_IQ">
 
     <link rel="icon" type="image/png" href="logo2.png">
     <link rel="apple-touch-icon" href="https://mohamyiq.com/logo.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "منصة محاميكم",
+        "url": "https://mohamyiq.com",
+        "logo": "https://mohamyiq.com/logo.png",
+        "description": "استشارات قانونية عراقية أونلاين في قضايا الأسرة والعمل والوظيفة وصياغة العقود",
+        "areaServed": { "@type": "Country", "name": "Iraq" },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "url": "https://mohamyiq.com/contact.html"
+        }
+    }
+    </script>
+
     <style>
         :root { --bg-dark: #0a0f2b; --gold-main: #f9d77a; --gold-dark: #b8955a; --glass-bg: rgba(255, 255, 255, 0.03); --glass-border: rgba(249, 215, 122, 0.15); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
         body { background-color: var(--bg-dark); color: #e2e8f0; overflow-x: hidden; scroll-behavior: smooth; }
-        nav { position: absolute; top: 0; left: 0; right: 0; padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: linear-gradient(to bottom, rgba(10, 15, 43, 0.9), transparent); }
-        .logo-container { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 90px rgba(249, 215, 122, 0.3)); }
+
+        nav {
+            position: absolute; top: 0; left: 0; right: 0;
+            padding: 25px 8%; display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: linear-gradient(to bottom, rgba(10, 15, 43, 0.9), transparent);
+        }
+        .logo-container { filter: drop-shadow(0 0 10px rgba(255,255,255,0.9)) drop-shadow(0 0 30px rgba(255,255,255,0.6)) drop-shadow(0 0 60px rgba(255,255,255,0.4)) drop-shadow(0 0 90px rgba(249,215,122,0.3)); }
         .logo-img { height: 130px; filter: brightness(1.2) contrast(1.2); transition: 0.4s; }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: #fff; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: 0.3s; }
+        .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 600; font-size: 1rem; transition: 0.3s; white-space: nowrap; }
         .nav-links a:hover { color: var(--gold-main); text-shadow: 0 0 10px var(--gold-main); }
-        .hero { min-height: 100vh; display: flex; align-items: center; padding: 0 8%; background: url('banner.jpg') center/cover no-repeat; position: relative; }
-        .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 250px; background: linear-gradient(to top, var(--bg-dark), transparent); }
+
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 0 8%; position: relative;
+            background: url('banner.jpg') center/cover no-repeat;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 250px;
+            background: linear-gradient(to top, var(--bg-dark), transparent); z-index: 2; pointer-events: none;
+        }
+
+        .hero-gavel {
+            position: absolute; z-index: 3; pointer-events: none;
+            left: 6%; bottom: 22%; width: 130px; height: 130px;
+            display: none; align-items: flex-end; justify-content: center;
+        }
+        .hero-gavel i {
+            font-size: 5.5rem; color: var(--gold-main);
+            filter: drop-shadow(0 0 20px rgba(249,215,122,0.8)) drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+            transform-origin: 85% 90%;
+            animation: gavelStrike 1.1s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.6s 1 forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        @keyframes gavelStrike {
+            0%   { opacity: 0; transform: rotate(-50deg) scale(0.8); }
+            15%  { opacity: 1; transform: rotate(-50deg) scale(1); }
+            35%  { transform: rotate(12deg) scale(1.05); }
+            45%  { transform: rotate(8deg); }
+            55%  { transform: rotate(-6deg); }
+            70%  { transform: rotate(2deg); }
+            100% { opacity: 0.9; transform: rotate(0deg) scale(1); }
+        }
+        .gavel-impact {
+            position: absolute; left: 6%; bottom: 18%; width: 80px; height: 80px;
+            border-radius: 50%; z-index: 2; pointer-events: none; opacity: 0;
+            background: radial-gradient(circle, rgba(249,215,122,0.5) 0%, transparent 70%);
+            animation: impactFlash 0.4s ease-out 1.15s 1 forwards;
+        }
+        @keyframes impactFlash {
+            0%   { opacity: 0; transform: scale(0.3); }
+            40%  { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(1.8); }
+        }
+
         .hero-content { max-width: 650px; position: relative; z-index: 10; }
         .hero h1 { font-size: 3.8rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 25px; }
         .hero h1 span { color: var(--gold-main); text-shadow: 0 0 20px rgba(249, 215, 122, 0.4); }
-        .hero p { font-size: 1.3rem; color: #cbd5e1; margin-bottom: 45px; }
-        
-        /* تم نقل تنسيق الأزرار إلى هنا للتحكم به في الهواتف */
-        .action-buttons { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
-        
-        .btn-gold { padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; background: linear-gradient(135deg, var(--gold-main), var(--gold-dark)); color: var(--bg-dark); display: inline-block; box-shadow: 0 10px 30px rgba(249, 215, 122, 0.4); transition: 0.4s; text-align: center; font-size: 1rem; border: none; cursor: pointer; }
-        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 15px 45px rgba(249, 215, 122, 0.6); }
-        .btn-icon { padding: 18px 20px; font-size: 1.6rem; line-height: 1; }
-        .services { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; background: var(--bg-dark); position: relative; z-index: 10; }
-        .glass-card { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 50px 40px; border-radius: 30px; backdrop-filter: blur(25px); text-align: center; transition: 0.4s; height: 100%; display: flex; flex-direction: column; justify-content: center; }
-        .glass-card:hover { transform: translateY(-15px); border-color: var(--gold-main); background: rgba(255,255,255,0.08); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-        .card-icon { font-size: 3rem; display: block; margin-bottom: 20px; filter: drop-shadow(0 0 10px var(--gold-main)); }
-        .glass-card h3 { color: #fff; margin-bottom: 20px; font-size: 1.7rem; }
-        .glass-card p { color: #94a3b8; font-size: 1rem; line-height: 1.6; }
-        
-        /* التعديلات الخاصة بالهواتف لحل مشكلة التداخل والتبعثر */
-        @media (max-width: 768px) { 
-            .hero { padding-top: 200px; align-items: flex-start; } /* إضافة مسافة علوية لمنع تغطية القائمة للنصوص */
-            .hero h1 { font-size: 2.5rem; } 
-            nav { padding: 15px 5%; flex-direction: column; gap: 15px; } 
-            .logo-img { height: 90px; } 
-            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; } /* السماح بالتفاف الروابط وتوسيطها */
+        .hero p { font-size: 1.3rem; color: #cbd5e1; margin-bottom: 45px; line-height: 1.85; }
+
+        .action-buttons { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+        .btn-gold {
+            padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-main), var(--gold-dark));
+            color: var(--bg-dark); display: inline-flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 30px rgba(249, 215, 122, 0.35); transition: 0.35s;
+            font-size: 1rem; border: none; cursor: pointer; gap: 8px;
+        }
+        .btn-gold:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(249, 215, 122, 0.55); }
+        .btn-icon { padding: 16px 18px; font-size: 1.5rem; line-height: 1; min-width: 56px; }
+
+        .services-section { padding: 60px 0 80px; background: var(--bg-dark); position: relative; z-index: 10; }
+        .services-header { text-align: center; padding: 0 8% 35px; }
+        .services-header h2 { font-size: 2rem; color: #fff; font-weight: 900; margin-bottom: 10px; }
+        .services-header h2 span { color: var(--gold-main); }
+        .services-header p { color: #94a3b8; font-size: 1.05rem; }
+
+        .services {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 28px; padding: 0 8%;
+        }
+        .service-link { text-decoration: none; display: block; height: 100%; }
+        .glass-card {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            padding: 36px 28px; border-radius: 24px; backdrop-filter: blur(20px);
+            text-align: center; transition: 0.35s; height: 100%;
+            display: flex; flex-direction: column; justify-content: flex-start;
+        }
+        .glass-card:hover { transform: translateY(-10px); border-color: var(--gold-main); background: rgba(255,255,255,0.07); box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+        .card-icon { font-size: 2.6rem; display: block; margin-bottom: 16px; filter: drop-shadow(0 0 8px var(--gold-main)); }
+        .glass-card h3 { color: #fff; margin-bottom: 14px; font-size: 1.45rem; font-weight: 700; }
+        .glass-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.75; text-align: right; }
+        .glass-card p br + * { display: block; margin-top: 2px; }
+
+        .cards-dots { display: none; justify-content: center; gap: 8px; margin-top: 20px; }
+        .cards-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(249,215,122,0.25); transition: 0.3s; }
+        .cards-dots span.active { background: var(--gold-main); width: 24px; border-radius: 4px; }
+
+        footer {
+            text-align: center; padding: 30px 8% 40px; border-top: 1px solid var(--glass-border);
+            color: #64748b; font-size: 0.9rem; background: var(--bg-dark);
+        }
+        footer a { color: var(--gold-main); text-decoration: none; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            .logo-img { height: 90px; }
+            .nav-links { justify-content: center; gap: 12px 16px; }
             .nav-links a { font-size: 0.95rem; }
-            
-            /* تعديل الأزرار لتكون مرتبة بجوار بعضها في الهواتف */
-            .action-buttons { justify-content: center; gap: 10px; flex-direction: row; align-items: center; } 
-            .btn-gold { padding: 12px 25px; font-size: 0.9rem; } 
-            .btn-icon { padding: 12px 18px; font-size: 1.3rem; } 
+
+            .hero {
+                min-height: 100vh; padding-top: 200px; align-items: flex-start;
+                background-position: 12% center;
+            }
+            .hero-content { max-width: 100%; text-align: center; }
+            .hero h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; }
+            .hero p { font-size: 1rem; line-height: 1.75; margin-bottom: 30px; }
+            .action-buttons { justify-content: center; gap: 10px; }
+            .btn-gold { padding: 12px 25px; font-size: 0.9rem; }
+            .btn-icon { padding: 12px 18px; font-size: 1.3rem; min-width: auto; }
+
+            .hero-gavel { display: flex; left: 4%; bottom: 38%; width: 90px; height: 90px; }
+            .hero-gavel i { font-size: 3.8rem; }
+            .gavel-impact { left: 4%; bottom: 34%; width: 60px; height: 60px; }
+
+            .services-section { padding: 40px 0 50px; }
+            .services-header { padding: 0 5% 25px; }
+            .services-header h2 { font-size: 1.5rem; }
+            .services-header p { font-size: 0.9rem; }
+
+            .services {
+                display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+                gap: 16px; padding: 0 5% 10px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .services::-webkit-scrollbar { display: none; }
+            .service-link { flex: 0 0 82%; scroll-snap-align: center; max-width: 320px; }
+            .glass-card { padding: 28px 22px; border-radius: 20px; }
+            .card-icon { font-size: 2.2rem; margin-bottom: 12px; }
+            .glass-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+            .glass-card p { font-size: 0.88rem; line-height: 1.65; }
+            .cards-dots { display: flex; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-gavel i, .gavel-impact { animation: none; opacity: 0; }
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo-container"><img src="logo.png" class="logo-img" alt="logo"></div>
+        <div class="logo-container"><img src="logo.png" class="logo-img" alt="شعار منصة محاميكم"></div>
         <div class="nav-links">
             <a href="https://mohamyiq.com/">الرئيسية</a>
             <a href="https://laws.mohamyiq.com/">القاعدة التشريعية</a>
             <a href="contact.html">اتصل بنا</a>
-            <a href="about.html">من نحن</a>
         </div>
     </nav>
+
     <section class="hero">
+        <div class="hero-gavel" aria-hidden="true"><i class="fas fa-gavel"></i></div>
+        <div class="gavel-impact" aria-hidden="true"></div>
         <div class="hero-content">
             <h1>منصة <span>محاميكم</span> <br>للاستشارات القانونية</h1>
-            <p><br>
-نجمع بين أصالة القانون  وتكنولوجيا المستقبل <br>
-استشارات قانونية دقيقة وإجابات متكاملة بين يديك بضغطة زر.</p>
-            
-        <div class="action-buttons">
-            <a href="https://app.mohamyiq.com/" class="btn-gold">اطلب استشارة فورية</a>
-            <a href="https://wa.me/9647775535047?text=مرحباً أرغب باستشارة قانونية" class="btn-gold btn-icon" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://t.me/mohamyiq" class="btn-gold btn-icon" aria-label="تليجرام"><i class="fab fa-telegram-plane"></i></a>
-        </div>
-    
+            <p>نجمع بين أصالة القانون وتكنولوجيا المستقبل<br>
+            استشارات قانونية دقيقة وإجابات متكاملة بين يديك بضغطة زر.</p>
+            <div class="action-buttons">
+                <a href="https://app.mohamyiq.com/" class="btn-gold">اطلب استشارة فورية</a>
+                <a href="https://wa.me/9647775535047?text=مرحباً أرغب باستشارة قانونية" class="btn-gold btn-icon" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/mohamyiq" class="btn-gold btn-icon" aria-label="تليجرام"><i class="fab fa-telegram-plane"></i></a>
+            </div>
         </div>
     </section>
-    <section class="services">
-        
-        <a href="https://laws.mohamyiq.com/" style="text-decoration:none">
-            <div class="glass-card">
-                <span class="card-icon">⚖️</span>
-                <h3>القاعدة التشريعية</h3>
-                <p>وصول فوري لأحدث القوانين والتشريعات بدقة عالية. <br>
-</p>
-            </div>
-        </a>
-        <a href="https://app.mohamyiq.com/" style="text-decoration:none">
-            <div class="glass-card">
-                <span class="card-icon">📜</span>
-                <h3>صياغة العقود</h3>
-                <p>حلول ذكية لصياغة الاتفاقات القانونية بما يضمن كامل حقوقكم المهنية.</p>
-            </div>
-        </a>
-        <a href="#" style="text-decoration:none">
-            <div class="glass-card">
-                <span class="card-icon">🔍</span>
-                <h3>تحليل القضايا</h3>
-                <p>نظام بحث متطور يربط قضيتك بالسوابق القانونية المشابهة لتوقع النتائج.</p>
-            </div>
-        </a>
-        <a href="https://app.mohamyiq.com/" style="text-decoration:none">
-            <div class="glass-card">
-                <span class="card-icon">👨‍💼</span>
-                <h3>الوظيفة </h3>
-                <p>حلول قانونية متخصصة في قضايا التوظيف <br>
--قضايا الموظفين الحكوميين<br>
--قضايا منتسبو القوات الأمنية</p>
-            </div>
-        </a>
-        <a href="https://app.mohamyiq.com/" style="text-decoration:none">
-            <div class="glass-card">
-                <span class="card-icon">👩‍👩‍👦‍👦</span>
-                <h3>قوانين الأسرة</h3>
-                <p>حلول قانونية متكاملة لجميع القضايا<br>
--قضايا الطلاق والتفريق<br>
--النفقة والحضانة<br>
--إثبات النسب والأنكحة</p>
-            </div>
-        </a>
-        <a href="https://app.mohamyiq.com/" style="text-decoration:none">
-            <div class="glass-card">
-                <span class="card-icon">👷</span>
-                <h3>قانون العمل</h3>
-                <p>حلول قانونية متكاملة لجميع القضايا<br>
--منازعات العمل والفصل التعسفي <br>
--عقود العمل والخدمات<br>
--مستحقات نهاية الخدمة</p>
-            </div>
-        </a>
+
+    <section class="services-section">
+        <div class="services-header">
+            <h2>خدماتنا <span>القانونية</span></h2>
+            <p>حلول متخصصة تغطي أبرز المجالات التي يحتاجها المواطن والمحامي</p>
+        </div>
+        <div class="services" id="servicesCarousel">
+            <a href="https://laws.mohamyiq.com/" class="service-link">
+                <div class="glass-card">
+                    <span class="card-icon">⚖️</span>
+                    <h3>القاعدة التشريعية</h3>
+                    <p>وصول فوري لأحدث القوانين والتشريعات العراقية بدقة عالية وسهولة في البحث.</p>
+                </div>
+            </a>
+            <a href="https://app.mohamyiq.com/" class="service-link">
+                <div class="glass-card">
+                    <span class="card-icon">📜</span>
+                    <h3>صياغة العقود</h3>
+                    <p>حلول ذكية لصياغة الاتفاقات القانونية بما يضمن كامل حقوقكم المهنية.</p>
+                </div>
+            </a>
+            <a href="https://app.mohamyiq.com/" class="service-link">
+                <div class="glass-card">
+                    <span class="card-icon">👨‍💼</span>
+                    <h3>الوظيفة</h3>
+                    <p>حلول قانونية متخصصة في قضايا التوظيف<br>
+                    قضايا الموظفين الحكوميين<br>
+                    قضايا منتسبي القوات الأمنية</p>
+                </div>
+            </a>
+            <a href="https://app.mohamyiq.com/" class="service-link">
+                <div class="glass-card">
+                    <span class="card-icon">👩‍👩‍👦‍👦</span>
+                    <h3>قوانين الأسرة</h3>
+                    <p>حلول قانونية متكاملة لجميع القضايا<br>
+                    قضايا الطلاق والتفريق<br>
+                    النفقة والحضانة<br>
+                    إثبات النسب والأنكحة</p>
+                </div>
+            </a>
+            <a href="https://app.mohamyiq.com/" class="service-link">
+                <div class="glass-card">
+                    <span class="card-icon">👷</span>
+                    <h3>قانون العمل</h3>
+                    <p>حلول قانونية متكاملة لجميع القضايا<br>
+                    منازعات العمل والفصل التعسفي<br>
+                    عقود العمل والخدمات<br>
+                    مستحقات نهاية الخدمة</p>
+                </div>
+            </a>
+        </div>
+        <div class="cards-dots" id="cardsDots" aria-hidden="true"></div>
     </section>
+
+    <footer>
+        <p>&copy; 2026 منصة محاميكم — جميع الحقوق محفوظة</p>
+        <p style="margin-top:10px">
+            <a href="privacy.html">سياسة الخصوصية</a>
+            <a href="contact.html">اتصل بنا</a>
+            <a href="about.html">من نحن</a>
+        </p>
+    </footer>
+
+    <script>
+    (function() {
+        var carousel = document.getElementById('servicesCarousel');
+        var dotsWrap = document.getElementById('cardsDots');
+        if (!carousel || !dotsWrap || window.innerWidth > 768) return;
+
+        var cards = carousel.querySelectorAll('.service-link');
+        cards.forEach(function(_, i) {
+            var dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dotsWrap.appendChild(dot);
+        });
+
+        carousel.addEventListener('scroll', function() {
+            var scrollLeft = carousel.scrollLeft;
+            var cardWidth = cards[0].offsetWidth + 16;
+            var index = Math.round(scrollLeft / cardWidth);
+            dotsWrap.querySelectorAll('span').forEach(function(d, i) {
+                d.classList.toggle('active', i === index);
+            });
+        }, { passive: true });
+    })();
+    </script>
 </body>
 </html>
