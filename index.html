@@ -158,10 +158,8 @@
 
             .hero {
                 min-height: 100vh; padding: 200px 5% 80px; align-items: flex-start;
-                background-size: 78% auto;
-                background-position: 100% 42%;
-                background-repeat: no-repeat;
-                background-color: var(--bg-dark);
+                background-size: cover;
+                background-position: 20% center;
             }
             .hero-content {
                 max-width: 100%; width: 100%;
@@ -169,23 +167,29 @@
                 display: flex; flex-direction: column; align-items: center;
             }
             .hero h1 {
-                font-size: 2.15rem; line-height: 1.35; margin-bottom: 18px;
-                max-width: 300px; width: 100%;
+                font-size: 2.4rem; line-height: 1.25; margin-bottom: 18px;
             }
             .hero p {
-                font-size: 0.95rem; line-height: 1.8; margin-bottom: 28px;
-                max-width: 300px; width: 100%;
-                color: #f1f5f9;
-                background: rgba(10, 15, 43, 0.78);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                padding: 14px 16px;
-                border-radius: 14px;
-                border: 1px solid rgba(249, 215, 122, 0.22);
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+                font-size: 1rem; line-height: 2; margin-bottom: 30px;
+                color: #f8fafc;
+                max-width: 92%;
+                background: none;
+                border: none;
+                box-shadow: none;
+                backdrop-filter: none;
+                padding: 0;
             }
-            .action-buttons { justify-content: center; gap: 10px; width: 100%; max-width: 300px; }
-            .btn-gold { padding: 12px 16px; font-size: 0.8rem; }
+            .hero p .hero-line {
+                display: inline;
+                background: rgba(10, 15, 43, 0.7);
+                padding: 0.12em 0.4em;
+                border-radius: 4px;
+                box-decoration-break: clone;
+                -webkit-box-decoration-break: clone;
+                box-shadow: 0 0 0 1px rgba(10, 15, 43, 0.35);
+            }
+            .action-buttons { justify-content: center; gap: 10px; }
+            .btn-gold { padding: 12px 20px; font-size: 0.88rem; }
             .btn-icon { padding: 12px 18px; font-size: 1.3rem; min-width: auto; }
 
             .hero-gavel { display: flex; left: 4%; bottom: 38%; width: 90px; height: 90px; }
@@ -232,8 +236,8 @@
         <div class="gavel-impact" aria-hidden="true"></div>
         <div class="hero-content">
             <h1>منصة <span>محاميكم</span> <br>للاستشارات القانونية</h1>
-            <p>نجمع بين أصالة القانون وتكنولوجيا المستقبل<br>
-            استشارات قانونية دقيقة وإجابات متكاملة بين يديك بضغطة زر.</p>
+            <p><span class="hero-line">نجمع بين أصالة القانون وتكنولوجيا المستقبل</span><br>
+            <span class="hero-line">استشارات قانونية دقيقة وإجابات متكاملة بين يديك بضغطة زر.</span></p>
             <div class="action-buttons">
                 <a href="https://app.mohamyiq.com/" class="btn-gold">اطلب استشارة آمنة وموثوقة</a>
                 <a href="https://wa.me/9647775535047?text=مرحباً أرغب باستشارة قانونية" class="btn-gold btn-icon" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
