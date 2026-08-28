@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>اتصل بنا | منصة محاميكم</title>
     <meta name="description" content="تواصل مع منصة محاميكم عبر واتساب، تليجرام، البريد الإلكتروني، أو المنصة الآمنة للاستشارات القانونية.">
+    <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="logo2.png">
     <link rel="canonical" href="https://mohamyiq.com/contact.html">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* ===== التصميم الأصلي بالكامل ===== */
         :root { 
             --bg-dark: #0a0f2b; 
             --gold-main: #f9d77a; 
+            --gold-dark: #b8955a;
             --glass-bg: rgba(255, 255, 255, 0.03); 
             --glass-border: rgba(249, 215, 122, 0.15); 
         }
@@ -26,30 +27,43 @@
         body { 
             background-color: var(--bg-dark); 
             color: #e2e8f0; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            min-height: 100vh; 
-            padding: 20px; 
+            min-height: 100vh;
         }
+        nav { 
+            padding: 20px 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            border-bottom: 1px solid var(--glass-border); 
+            background: rgba(10, 15, 43, 0.95); 
+        }
+        .logo-img { height: 70px; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 20px; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-main); }
+        .page-wrap { max-width: 820px; margin: 0 auto; padding: 40px 20px 80px; }
         .contact-card { 
             background: var(--glass-bg); 
             border: 1px solid var(--glass-border); 
-            padding: 50px; 
+            padding: 50px 40px; 
             border-radius: 30px; 
             backdrop-filter: blur(20px); 
-            max-width: 650px; 
             text-align: center; 
             width: 100%; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
         h1 { 
             color: var(--gold-main); 
-            margin-bottom: 20px; 
+            margin-bottom: 15px; 
             font-weight: 900; 
+            font-size: 2.2rem;
         }
-        p { 
-            margin-bottom: 40px; 
+        p.intro { 
+            margin-bottom: 35px; 
             color: #94a3b8; 
+            font-size: 1.05rem;
         }
         .contact-methods { 
             display: grid; 
@@ -72,19 +86,16 @@
             gap: 12px;
             text-align: center;
         }
-        /* أيقونات كبيرة وواضحة */
         .method i {
-            font-size: 3.2rem;
+            font-size: 3rem;
             transition: transform 0.2s;
         }
-        /* تنسيق النص أسفل الأيقونة */
         .method span {
             font-size: 0.95rem;
             color: #cbd5e1;
             transition: 0.3s ease;
             font-weight: 600;
         }
-        /* لمسة ذهبية للأيقونة والنص عند المرور */
         .method:hover i {
             transform: scale(1.05);
         }
@@ -98,21 +109,27 @@
         }
         .btn-back { 
             display: inline-block; 
-            margin-top: 45px; 
-            color: #94a3b8; 
+            margin-top: 35px; 
+            color: var(--gold-main); 
             text-decoration: none; 
-            font-size: 0.9rem; 
-            transition: 0.2s;
+            font-weight: 700; 
+            border: 1px solid var(--gold-main); 
+            padding: 10px 30px; 
+            border-radius: 50px; 
+            transition: 0.3s;
         }
         .btn-back:hover {
-            color: var(--gold-main);
+            background: var(--gold-main);
+            color: var(--bg-dark);
         }
-        /* جعل التجاوب ممتاز مع الشاشات الصغيرة */
-        @media (max-width: 550px) {
-            .contact-card { padding: 35px 20px; }
-            .contact-methods { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .method { padding: 20px 8px; }
-            .method i { font-size: 2.5rem; }
+        @media (max-width: 600px) {
+            .contact-card { padding: 30px 20px; }
+            .contact-card h1 { font-size: 1.8rem; }
+            nav { justify-content: center; }
+            .nav-links { justify-content: center; }
+            .contact-methods { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .method { padding: 18px 8px; }
+            .method i { font-size: 2.3rem; }
             .method span { font-size: 0.85rem; }
         }
         @media (max-width: 400px) {
@@ -121,47 +138,60 @@
     </style>
 </head>
 <body>
-    <div class="contact-card">
-        <h1>اتصل بنا</h1>
-        <p>يسعدنا استقبال استفساراتكم وملاحظاتكم عبر القنوات التالية:</p>
-        <div class="contact-methods">
-            <a href="https://app.mohamyiq.com/" class="method" target="_blank" rel="noopener noreferrer" title="المنصة الآمنة المشفرة">
-                <i class="fas fa-user-shield"></i>
-                <span>المنصة الآمنة</span>
-            </a>
-            <a href="https://t.me/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="تليجرام - قناة التواصل">
-                <i class="fab fa-telegram"></i>
-                <span> تليجرام</span>
-            </a>
-            <a href="https://discordapp.com/oauth2/authorize?client_id=1490801686485274834" class="method" target="_blank" rel="noopener noreferrer" title="ديسكورد">
-                <i class="fab fa-discord"></i>
-                <span>ديسكورد</span>
-            </a>
-
-            <a href="mailto:info@mohamyiq.com" class="method" title="البريد الإلكتروني">
-                <i class="fas fa-envelope"></i>
-                <span>البريد الإلكتروني</span>
-            </a>
-            <a href="https://t.me/mohamycom_tips" class="method" target="_blank" rel="noopener noreferrer" title="معلومات فورية -  تليجرام">
-                <i class="fas fa-robot"></i>
-                <span>قناة التليجرام</span>
-            </a>
-            <a href="https://wa.me/9647775535047" class="method" target="_blank" rel="noopener noreferrer" title="واتساب - تواصل مباشر">
-                <i class="fab fa-whatsapp"></i>
-                <span>واتساب</span>
-            </a>
-
-            <a href="https://facebook.com/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="فيسبوك - صفحتنا الرسمية">
-                <i class="fab fa-facebook-f"></i>
-                <span>فيسبوك</span>
-            </a>
-            <a href="https://instagram.com/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="إنستغرام - محتوى قانوني">
-                <i class="fab fa-instagram"></i>
-                <span>إنستغرام</span>
-            </a>
+    <nav>
+        <a href="index.html"><img src="logo.png" class="logo-img" alt="شعار منصة محاميكم"></a>
+        <div class="nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="https://laws.mohamyiq.com/">القاعدة التشريعية</a>
+            <a href="about.html">من نحن</a>
+            <a href="contact.html" class="active">اتصل بنا</a>
+            <a href="privacy.html">الخصوصية</a>
         </div>
-        <a href="index.html" class="btn-back">العودة للصفحة الرئيسية</a>
-        <p style="margin-top:20px;font-size:0.85rem"><a href="privacy.html" style="color:#f9d77a;text-decoration:none">سياسة الخصوصية</a></p>
+    </nav>
+
+    <div class="page-wrap">
+        <div class="contact-card">
+            <h1>اتصل بنا</h1>
+            <p class="intro">يسعدنا استقبال استفساراتكم وملاحظاتكم عبر القنوات التالية:</p>
+            <div class="contact-methods">
+                <a href="https://app.mohamyiq.com/" class="method" target="_blank" rel="noopener noreferrer" title="المنصة الآمنة المشفرة">
+                    <i class="fas fa-user-shield"></i>
+                    <span>المنصة الآمنة</span>
+                </a>
+                <a href="https://t.me/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="تليجرام - قناة التواصل">
+                    <i class="fab fa-telegram"></i>
+                    <span> تليجرام</span>
+                </a>
+                <a href="https://discordapp.com/oauth2/authorize?client_id=1490801686485274834" class="method" target="_blank" rel="noopener noreferrer" title="ديسكورد">
+                    <i class="fab fa-discord"></i>
+                    <span>ديسكورد</span>
+                </a>
+
+                <a href="mailto:info@mohamyiq.com" class="method" title="البريد الإلكتروني">
+                    <i class="fas fa-envelope"></i>
+                    <span>البريد الإلكتروني</span>
+                </a>
+                <a href="https://t.me/mohamycom_tips" class="method" target="_blank" rel="noopener noreferrer" title="معلومات فورية - تليجرام">
+                    <i class="fas fa-robot"></i>
+                    <span>قناة التليجرام</span>
+                </a>
+                <a href="https://wa.me/9647775535047" class="method" target="_blank" rel="noopener noreferrer" title="واتساب - تواصل مباشر">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>واتساب</span>
+                </a>
+
+                <a href="https://facebook.com/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="فيسبوك - صفحتنا الرسمية">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>فيسبوك</span>
+                </a>
+                <a href="https://instagram.com/mohamyiq" class="method" target="_blank" rel="noopener noreferrer" title="إنستغرام - محتوى قانوني">
+                    <i class="fab fa-instagram"></i>
+                    <span>إنستغرام</span>
+                </a>
+            </div>
+            <a href="index.html" class="btn-back">العودة للصفحة الرئيسية</a>
+            <p style="margin-top:20px;font-size:0.85rem"><a href="privacy.html" style="color:#f9d77a;text-decoration:none">سياسة الخصوصية</a></p>
+        </div>
     </div>
 </body>
 </html>
