@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>منصة محاميكم | استشارات قانونية عراقية أونلاين</title>
-    <meta name="description" content="منصة محاميكم هي بوابتك الرقمية للحصول على استشارات قانونية دقيقة في العراق. متخصصون في قضايا الأسرة، العمل، الوظيفة، وصياغة العقود باحترافية عاليّة.">
-    <meta name="keywords" content="محامي عراقي، استشارات قانونية، منصة محاميكم، صياغة عقود، قانون العمل العراقي، قضايا الموظفين، محاماة أونلاين">
+    <title>منصة محاميكم | استشارات قانونية وأرشيف التشريعات العراقية</title>
+    <meta name="description" content="منصة محاميكم: استشارات قانونية عراقية أونلاين، مع القاعدة التشريعية — أرشيف يضم عشرات الآلاف من القوانين والقرارات والسوابق القضائية عبر laws.mohamyiq.com.">
+    <meta name="keywords" content="محامي عراقي، استشارات قانونية، منصة محاميكم، القاعدة التشريعية، قوانين عراقية، أرشيف تشريعات، صياغة عقود، قانون العمل العراقي">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mohamyiq.com/">
     
-    <meta property="og:title" content="منصة محاميكم | للاستشارات القانونية">
-    <meta property="og:description" content="استشارات قانونية دقيقة وإجابات متكاملة بين يديك بضغطة زر.">
+    <meta property="og:title" content="منصة محاميكم | استشارات وأرشيف تشريعي عراقي">
+    <meta property="og:description" content="استشارات قانونية دقيقة، والقاعدة التشريعية العراقية في مكان واحد.">
     <meta property="og:image" content="https://mohamyiq.com/logo.png">
     <meta property="og:url" content="https://mohamyiq.com/">
     <meta property="og:type" content="website">
@@ -30,12 +30,19 @@
         "name": "منصة محاميكم",
         "url": "https://mohamyiq.com",
         "logo": "https://mohamyiq.com/logo.png",
-        "description": "استشارات قانونية عراقية أونلاين في قضايا الأسرة والعمل والوظيفة وصياغة العقود مع أرشيف القاعدة التشريعية العراقية",
+        "description": "استشارات قانونية عراقية أونلاين مع أرشيف القاعدة التشريعية العراقية عبر laws.mohamyiq.com",
         "areaServed": { "@type": "Country", "name": "Iraq" },
         "sameAs": [
             "https://laws.mohamyiq.com/",
+            "https://laws.mohamyiq.com/about",
             "https://app.mohamyiq.com/"
         ],
+        "hasPart": {
+            "@type": "WebSite",
+            "name": "القاعدة التشريعية",
+            "url": "https://laws.mohamyiq.com/",
+            "description": "أرشيف رقمي للتشريعات والقرارات والسوابق القضائية العراقية ضمن منصة محاميكم"
+        },
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer service",
@@ -118,9 +125,35 @@
             font-size: 1rem; border: none; cursor: pointer; gap: 8px;
         }
         .btn-gold:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(249, 215, 122, 0.55); }
+        .btn-outline {
+            padding: 16px 28px; border-radius: 50px; text-decoration: none; font-weight: 700;
+            background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(249,215,122,0.45);
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            transition: 0.35s; font-size: 1rem; backdrop-filter: blur(8px);
+        }
+        .btn-outline:hover { background: rgba(249,215,122,0.15); border-color: var(--gold-main); transform: translateY(-3px); }
         .btn-icon { padding: 16px 18px; font-size: 1.5rem; line-height: 1; min-width: 56px; }
 
-        .services-section { padding: 60px 0 80px; background: var(--bg-dark); position: relative; z-index: 10; }
+        .laws-spotlight {
+            margin: -40px 8% 50px; position: relative; z-index: 20;
+            background: linear-gradient(135deg, rgba(15, 23, 60, 0.95), rgba(30, 41, 90, 0.92));
+            border: 1px solid rgba(249, 215, 122, 0.35);
+            border-radius: 28px; padding: 36px 40px;
+            display: grid; grid-template-columns: 1.4fr auto; gap: 28px; align-items: center;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+        }
+        .laws-spotlight h2 { color: var(--gold-main); font-size: 1.85rem; font-weight: 900; margin-bottom: 12px; }
+        .laws-spotlight p { color: #cbd5e1; line-height: 1.85; font-size: 1.05rem; margin-bottom: 18px; }
+        .laws-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+        .laws-stats span {
+            background: rgba(249,215,122,0.12); border: 1px solid rgba(249,215,122,0.25);
+            color: #fde68a; font-weight: 700; font-size: 0.88rem; padding: 8px 14px; border-radius: 999px;
+        }
+        .laws-spotlight-actions { display: flex; flex-direction: column; gap: 12px; min-width: 220px; }
+        .laws-spotlight-actions .btn-gold,
+        .laws-spotlight-actions .btn-outline { width: 100%; }
+
+        .services-section { padding: 20px 0 80px; background: var(--bg-dark); position: relative; z-index: 10; }
         .services-header { text-align: center; padding: 0 8% 35px; }
         .services-header h2 { font-size: 2rem; color: #fff; font-weight: 900; margin-bottom: 10px; }
         .services-header h2 span { color: var(--gold-main); }
@@ -138,10 +171,18 @@
             display: flex; flex-direction: column; justify-content: flex-start;
         }
         .glass-card:hover { transform: translateY(-10px); border-color: var(--gold-main); background: rgba(255,255,255,0.07); box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+        .glass-card.featured {
+            border-color: rgba(249,215,122,0.55);
+            background: linear-gradient(180deg, rgba(249,215,122,0.08), rgba(255,255,255,0.02));
+        }
+        .card-badge {
+            align-self: center; margin-bottom: 12px; font-size: 0.75rem; font-weight: 800;
+            color: var(--bg-dark); background: var(--gold-main); padding: 4px 12px; border-radius: 999px;
+        }
         .card-icon { font-size: 2.6rem; display: block; margin-bottom: 16px; filter: drop-shadow(0 0 8px var(--gold-main)); }
         .glass-card h3 { color: #fff; margin-bottom: 14px; font-size: 1.45rem; font-weight: 700; }
         .glass-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.75; text-align: right; }
-        .glass-card p br + * { display: block; margin-top: 2px; }
+        .card-cta { margin-top: auto; padding-top: 16px; color: var(--gold-main); font-weight: 800; font-size: 0.92rem; }
 
         .cards-dots { display: none; justify-content: center; gap: 8px; margin-top: 20px; }
         .cards-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(249,215,122,0.25); transition: 0.3s; }
@@ -153,6 +194,13 @@
         }
         footer a { color: var(--gold-main); text-decoration: none; margin: 0 10px; }
         footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 900px) {
+            .laws-spotlight { grid-template-columns: 1fr; margin: -20px 5% 40px; padding: 28px 22px; text-align: center; }
+            .laws-spotlight p { text-align: center; }
+            .laws-stats { justify-content: center; }
+            .laws-spotlight-actions { min-width: 0; }
+        }
 
         @media (max-width: 768px) {
             nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
@@ -193,14 +241,14 @@
                 box-shadow: 0 0 0 1px rgba(10, 15, 43, 0.35);
             }
             .action-buttons { justify-content: center; gap: 10px; }
-            .btn-gold { padding: 12px 20px; font-size: 0.88rem; }
+            .btn-gold, .btn-outline { padding: 12px 20px; font-size: 0.88rem; }
             .btn-icon { padding: 12px 18px; font-size: 1.3rem; min-width: auto; }
 
             .hero-gavel { display: flex; left: 4%; bottom: 38%; width: 90px; height: 90px; }
             .hero-gavel i { font-size: 3.8rem; }
             .gavel-impact { left: 4%; bottom: 34%; width: 60px; height: 60px; }
 
-            .services-section { padding: 40px 0 50px; }
+            .services-section { padding: 10px 0 50px; }
             .services-header { padding: 0 5% 25px; }
             .services-header h2 { font-size: 1.5rem; }
             .services-header p { font-size: 0.9rem; }
@@ -230,7 +278,7 @@
         <div class="logo-container"><img src="logo.png" class="logo-img" alt="شعار منصة محاميكم"></div>
         <div class="nav-links">
             <a href="https://mohamyiq.com/">الرئيسية</a>
-            <a href="https://laws.mohamyiq.com/" title="القاعدة التشريعية العراقية">القاعدة التشريعية</a>
+            <a href="https://laws.mohamyiq.com/" title="القاعدة التشريعية العراقية — أرشيف القوانين والقرارات">القاعدة التشريعية</a>
             <a href="about.html">من نحن</a>
             <a href="contact.html">اتصل بنا</a>
         </div>
@@ -242,12 +290,33 @@
         <div class="hero-content">
             <h1>منصة <span>محاميكم</span> <br>للاستشارات القانونية</h1>
             <p><span class="hero-line">نجمع بين أصالة القانون وتكنولوجيا المستقبل</span><br>
-            <span class="hero-line">استشارات قانونية دقيقة وإجابات متكاملة بين يديك بضغطة زر.</span></p>
+            <span class="hero-line">استشارات دقيقة، وأرشيف تشريعي عراقي محدَّث عبر القاعدة التشريعية.</span></p>
             <div class="action-buttons">
                 <a href="https://app.mohamyiq.com/" class="btn-gold">اطلب استشارة آمنة وموثوقة</a>
+                <a href="https://laws.mohamyiq.com/" class="btn-outline"><i class="fas fa-landmark"></i> القاعدة التشريعية</a>
                 <a href="https://wa.me/9647775535047?text=مرحباً أرغب باستشارة قانونية" class="btn-gold btn-icon" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://t.me/mohamyiq" class="btn-gold btn-icon" aria-label="تليجرام"><i class="fab fa-telegram-plane"></i></a>
             </div>
+        </div>
+    </section>
+
+    <section class="laws-spotlight" aria-labelledby="laws-spotlight-title">
+        <div>
+            <h2 id="laws-spotlight-title">القاعدة التشريعية — أرشيف القانون العراقي</h2>
+            <p>
+                منصة مستقلة ضمن محاميكم للبحث في القوانين والقرارات والسوابق والوقائع العراقية،
+                مع أدوات عمل يومية للمحامي والباحث. النص الكامل داخل المنصة؛ الفهرسة العامة تعرض العناوين والبيانات التعريفية فقط.
+            </p>
+            <div class="laws-stats">
+                <span>+55 ألف تشريع ووثيقة</span>
+                <span>قوانين وقرارات وسوابق</span>
+                <span>جريدة الوقائع</span>
+                <span>أدوات قانونية</span>
+            </div>
+        </div>
+        <div class="laws-spotlight-actions">
+            <a href="https://laws.mohamyiq.com/" class="btn-gold"><i class="fas fa-external-link-alt"></i> ادخل الأرشيف الآن</a>
+            <a href="https://laws.mohamyiq.com/about" class="btn-outline">تعرّف على المنصة</a>
         </div>
     </section>
 
@@ -258,10 +327,12 @@
         </div>
         <div class="services" id="servicesCarousel">
             <a href="https://laws.mohamyiq.com/" class="service-link">
-                <div class="glass-card">
+                <div class="glass-card featured">
+                    <span class="card-badge">الأرشيف التشريعي</span>
                     <span class="card-icon">⚖️</span>
                     <h3>القاعدة التشريعية</h3>
-                    <p>وصول فوري لأحدث القوانين والتشريعات العراقية بدقة عالية وسهولة في البحث.</p>
+                    <p>أرشيف رقمي للقوانين والتشريعات والقرارات العراقية مع بحث منظم، وتحديث مستمر، وأدوات عملية للمحامي — عبر laws.mohamyiq.com.</p>
+                    <span class="card-cta">تصفح الأرشيف ←</span>
                 </div>
             </a>
             <a href="https://app.mohamyiq.com/" class="service-link">
@@ -308,6 +379,7 @@
         <p>&copy; 2026 منصة محاميكم — جميع الحقوق محفوظة</p>
         <p style="margin-top:10px">
             <a href="https://laws.mohamyiq.com/">القاعدة التشريعية</a>
+            <a href="https://laws.mohamyiq.com/about">عن الأرشيف التشريعي</a>
             <a href="about.html">من نحن</a>
             <a href="contact.html">اتصل بنا</a>
             <a href="privacy.html">سياسة الخصوصية</a>
